@@ -1,0 +1,13 @@
+node_modules
+dist
+dev-dist
+coverage
+*.local
+.vite
+test-results
+playwright-report
+blob-report
+# Raw downloaded source datasets (large). Generated, compact app datasets live in public/data.
+data-src/raw/
+*.tsbuildinfo
+.DS_Store
