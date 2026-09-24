@@ -177,7 +177,9 @@ export function ExplorePage() {
       </section>
       <section className="card">
         {app.catalogue.error ? (
-          <p style={{ color: 'var(--bad)' }}>{t('app.catalogueError', { error: app.catalogue.error })}</p>
+          <p style={{ color: 'var(--bad)' }}>
+            {t('app.catalogueError', { error: app.catalogue.error })}
+          </p>
         ) : !app.catalogue.ready ? (
           <Spinner label={t('app.loadingCatalogue')} />
         ) : (
