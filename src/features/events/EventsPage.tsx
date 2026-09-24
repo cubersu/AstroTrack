@@ -249,7 +249,7 @@ export function EventsPage() {
                     </div>
                     <div className="tiny">
                       {c.visibleFromMs && c.visibleToMs
-                        ? `${fmtTime(c.visibleFromMs)}–${fmtTime(c.visibleToMs)} (max ${fmtNumber(c.maxAltDeg, 0)}°)`
+                        ? `${fmtTime(c.visibleFromMs)}–${fmtTime(c.visibleToMs)} (${t('tonight.maxAlt', { alt: fmtNumber(c.maxAltDeg, 0) })})`
                         : t('events.notVisible')}
                     </div>
                   </div>

@@ -962,6 +962,11 @@ export const en = {
     },
     inUse: 'This camera is used by a profile. Delete or edit the profile first.',
     sampleLoaded: 'Sample equipment loaded.',
+    sample: {
+      camera: 'APS-C DSLR 22.3×14.9 mm',
+      mount: 'EQ tracking mount',
+      rig: 'APS-C + lenses (sample)',
+    },
   },
   locations: {
     title: 'Locations',

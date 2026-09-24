@@ -203,8 +203,8 @@ function FavoritesTab() {
               {comets.map((c) => (
                 <li key={c.designation}>
                   {c.designation}: {fmtDate(c.bestDateMs)} · {t('events.mag')} ≈{' '}
-                  {c.bestMagnitude !== null ? fmtNumber(c.bestMagnitude, 1) : '—'} · max{' '}
-                  {fmtNumber(c.maxAltDeg, 0)}°
+                  {c.bestMagnitude !== null ? fmtNumber(c.bestMagnitude, 1) : '—'} ·{' '}
+                  {t('tonight.maxAlt', { alt: fmtNumber(c.maxAltDeg, 0) })}
                 </li>
               ))}
             </ul>

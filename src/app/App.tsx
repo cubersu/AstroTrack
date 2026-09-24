@@ -1,24 +1,51 @@
-import { useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { detectLanguage, I18nProvider, useI18n } from '../i18n/i18n';
 import { ToastProvider, useToast } from '../ui/toast';
+import { Spinner } from '../ui/controls';
 import { AppShell } from './AppShell';
 import { AppStateProvider, useApp } from './AppState';
 import { RouterProvider, Routes, navigate } from './router';
 import type { RouteDef } from './router';
 import { setupPwa } from './pwa';
 import { TonightPage } from '../features/tonight/TonightPage';
-import { ExplorePage } from '../features/explore/ExplorePage';
-import { TargetPage } from '../features/target/TargetPage';
-import { EventsPage } from '../features/events/EventsPage';
-import { PlansPage } from '../features/plans/PlansPage';
-import { PlanDetailPage } from '../features/plans/PlanDetailPage';
-import { SessionPage } from '../features/session/SessionPage';
-import { JournalPage } from '../features/journal/JournalPage';
-import { EquipmentPage } from '../features/equipment/EquipmentPage';
-import { LocationsPage } from '../features/locations/LocationsPage';
-import { OfflinePage } from '../features/offline/OfflinePage';
-import { SettingsPage } from '../features/settings/SettingsPage';
-import { LicensesPage } from '../features/licenses/LicensesPage';
+
+// Route-level code splitting (all chunks are still precached for offline use).
+const ExplorePage = lazy(() =>
+  import('../features/explore/ExplorePage').then((m) => ({ default: m.ExplorePage })),
+);
+const TargetPage = lazy(() =>
+  import('../features/target/TargetPage').then((m) => ({ default: m.TargetPage })),
+);
+const EventsPage = lazy(() =>
+  import('../features/events/EventsPage').then((m) => ({ default: m.EventsPage })),
+);
+const PlansPage = lazy(() =>
+  import('../features/plans/PlansPage').then((m) => ({ default: m.PlansPage })),
+);
+const PlanDetailPage = lazy(() =>
+  import('../features/plans/PlanDetailPage').then((m) => ({ default: m.PlanDetailPage })),
+);
+const SessionPage = lazy(() =>
+  import('../features/session/SessionPage').then((m) => ({ default: m.SessionPage })),
+);
+const JournalPage = lazy(() =>
+  import('../features/journal/JournalPage').then((m) => ({ default: m.JournalPage })),
+);
+const EquipmentPage = lazy(() =>
+  import('../features/equipment/EquipmentPage').then((m) => ({ default: m.EquipmentPage })),
+);
+const LocationsPage = lazy(() =>
+  import('../features/locations/LocationsPage').then((m) => ({ default: m.LocationsPage })),
+);
+const OfflinePage = lazy(() =>
+  import('../features/offline/OfflinePage').then((m) => ({ default: m.OfflinePage })),
+);
+const SettingsPage = lazy(() =>
+  import('../features/settings/SettingsPage').then((m) => ({ default: m.SettingsPage })),
+);
+const LicensesPage = lazy(() =>
+  import('../features/licenses/LicensesPage').then((m) => ({ default: m.LicensesPage })),
+);
 
 const routes: RouteDef[] = [
   { path: '/tonight', render: () => <TonightPage mode="tonight" /> },
@@ -75,7 +102,9 @@ function Localized() {
     <I18nProvider lang={lang} timeZone={app.location?.timeZone ?? undefined}>
       <ToastProvider>
         <AppShell banner={<UpdateBanner />}>
-          <Routes routes={routes} fallback={<Redirect to="/tonight" />} />
+          <Suspense fallback={<Spinner label="…" />}>
+            <Routes routes={routes} fallback={<Redirect to="/tonight" />} />
+          </Suspense>
         </AppShell>
       </ToastProvider>
     </I18nProvider>

@@ -3,6 +3,7 @@ import { createSampleEquipment } from '../../app/rig';
 import { Link } from '../../app/router';
 import { useI18n } from '../../i18n/i18n';
 import { useToast } from '../../ui/toast';
+import { sampleNames } from '../common/sampleNames';
 
 export function SetupPrompt() {
   const { t } = useI18n();
@@ -29,12 +30,7 @@ export function SetupPrompt() {
               className="btn"
               onClick={async () => {
                 await createSampleEquipment({
-                  camera: 'APS-C DSLR 22.3×14.9',
-                  prime: '50 mm f/1.8',
-                  kit: '18–55 mm f/3.5–5.6',
-                  zoom: '18–200 mm f/3.5–6.3',
-                  mount: 'EQ tracker',
-                  rig: 'APS-C + lenses (sample)',
+                  ...sampleNames(t),
                 });
                 toast(t('equipment.sampleLoaded'));
               }}

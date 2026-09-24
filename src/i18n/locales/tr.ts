@@ -973,6 +973,11 @@ export const tr: Dict = {
     },
     inUse: 'Bu kamera bir profilde kullanılıyor. Önce profili silin veya düzenleyin.',
     sampleLoaded: 'Örnek ekipman yüklendi.',
+    sample: {
+      camera: 'APS-C DSLR 22,3×14,9 mm',
+      mount: 'Takipli EQ kundak',
+      rig: 'APS-C + objektifler (örnek)',
+    },
   },
   locations: {
     title: 'Konumlar',

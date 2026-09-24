@@ -57,6 +57,8 @@ function starColor(bv: number): string {
 
 export function FramingSimulator(p: SimulatorProps) {
   const { t, fmtNumber } = useI18n();
+  const north = t('compass.N');
+  const east = t('compass.E');
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [stars, setStars] = useState<StarFieldResponse | null>(null);
   const [pan, setPan] = useState<[number, number]>([0, 0]);
@@ -168,12 +170,12 @@ export function FramingSimulator(p: SimulatorProps) {
     function drawCompass() {
       ctx!.fillStyle = '#9aa6c4';
       ctx!.font = '12px system-ui, sans-serif';
-      ctx!.fillText('N ↑', 8, 16);
-      ctx!.fillText('← E', 8, 32);
+      ctx!.fillText(`${north} ↑`, 8, 16);
+      ctx!.fillText(`← ${east}`, 8, 32);
       ctx!.fillStyle = '#f2b94b';
       ctx!.fillText(p.targetLabel, cx + 8, cy + 14);
     }
-  }, [stars, p, viewDeg, pan]);
+  }, [stars, p, viewDeg, pan, north, east]);
 
   return (
     <figure style={{ margin: 0 }}>

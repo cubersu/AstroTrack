@@ -230,8 +230,8 @@ export function SessionPage() {
         </div>
         {cur && (
           <p className="tiny muted mono" style={{ marginTop: '0.5rem' }}>
-            RA/Dec ({t('target.ofDate')}): {fmtNumber(cur.pod.raDeg / 15, 4)}h /{' '}
-            {fmtNumber(cur.pod.decDeg, 3)}°
+            {t('target.ra')}/{t('target.dec')} ({t('target.ofDate')}):{' '}
+            {fmtNumber(cur.pod.raDeg / 15, 4)}h / {fmtNumber(cur.pod.decDeg, 3)}°
           </p>
         )}
       </section>

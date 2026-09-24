@@ -91,13 +91,17 @@ export function useQueryParam(name: string): [string | null, (v: string | null) 
   const value = query.get(name);
   const set = useCallback(
     (v: string | null) => {
-      const q = new URLSearchParams(query);
+      // Read the location at call time: if the user navigated elsewhere in the
+      // meantime (e.g. while an async save completed), leave it untouched.
+      const cur = currentLocation();
+      if (cur.path !== path) return;
+      const q = new URLSearchParams(cur.query);
       if (v === null) q.delete(name);
       else q.set(name, v);
       const s = q.toString();
       navigate(path + (s ? '?' + s : ''), { replace: true });
     },
-    [name, path, query],
+    [name, path],
   );
   return useMemo(() => [value, set], [value, set]);
 }
