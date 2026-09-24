@@ -66,7 +66,14 @@ export function summaryToTarget(s: DsoSummary): TargetInput {
 interface StarTilePack {
   manifest: PackManifest;
   order: number;
+  /** Colour index stored in the tiles ('b-v' for HYG, 'bp-rp' for Gaia). */
+  colorIndex: 'b-v' | 'bp-rp';
   cache: Map<number, StarColumns | null>;
+}
+
+/** Rough linear BP−RP → B−V conversion, used only to tint rendered stars. */
+export function approxBvFromBpRp(bpRp: number): number {
+  return 0.75 * bpRp;
 }
 
 export class CatalogService {
@@ -345,10 +352,20 @@ export class CatalogService {
   private async loadStarTilePacks(): Promise<StarTilePack[]> {
     if (this.starTilePacks) return this.starTilePacks;
     const states = await listPackStates();
-    this.starTilePacks = states
-      .filter((st) => st.manifest.kind === 'star-tiles' && st.manifest.tiling)
-      .map((st) => ({ manifest: st.manifest, order: st.manifest.tiling!.order, cache: new Map() }));
-    return this.starTilePacks;
+    const packs: StarTilePack[] = [];
+    for (const st of states.filter((x) => x.manifest.kind === 'star-tiles' && x.manifest.tiling)) {
+      const meta = await readPackJson<{ colorIndex?: string }>(st.id, 'tiles.json').catch(
+        () => null,
+      );
+      packs.push({
+        manifest: st.manifest,
+        order: st.manifest.tiling!.order,
+        colorIndex: meta?.colorIndex === 'bp-rp' ? 'bp-rp' : 'b-v',
+        cache: new Map(),
+      });
+    }
+    this.starTilePacks = packs;
+    return packs;
   }
 
   invalidateStarPacks() {
@@ -372,14 +389,15 @@ export class CatalogService {
       const d = (decDeg * Math.PI) / 180;
       return sd0 * Math.sin(d) + cd0 * Math.cos(d) * Math.cos((raDeg * Math.PI) / 180 - r0) >= cosR;
     };
-    const push = (c: StarColumns, i: number) => {
+    const push = (c: StarColumns, i: number, colorIndex: 'b-v' | 'bp-rp' = 'b-v') => {
       const m = c.mag[i] / 100;
       if (m > req.magLimit) return;
       if (!inside(c.ra[i], c.dec[i])) return;
       ra.push(c.ra[i]);
       dec.push(c.dec[i]);
       mag.push(m);
-      bv.push(c.bv[i] === BV_UNKNOWN ? Number.NaN : c.bv[i] / 1000);
+      const ci = c.bv[i] === BV_UNKNOWN ? Number.NaN : c.bv[i] / 1000;
+      bv.push(colorIndex === 'bp-rp' ? approxBvFromBpRp(ci) : ci);
     };
     const labels: StarFieldResponse['labels'] = [];
     if (this.coreStars) {
@@ -410,7 +428,7 @@ export class CatalogService {
           const c = pack.cache.get(t);
           if (!c) continue;
           used = true;
-          for (let i = 0; i < c.count; i++) push(c, i);
+          for (let i = 0; i < c.count; i++) push(c, i, pack.colorIndex);
         }
         if (used) sources.push(pack.manifest.id);
       }
