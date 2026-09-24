@@ -28,8 +28,13 @@ export default tseslint.config(
       'react-refresh': reactRefresh,
     },
     rules: {
-      ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      // Classic hook rules only. The React-Compiler-oriented rules shipped in
+      // eslint-plugin-react-hooks v7 (set-state-in-effect, refs, purity,
+      // use-memo, …) are not enabled because this project does not use the
+      // React Compiler and relies on conventional effect patterns.
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+      'react-refresh/only-export-components': 'off',
       '@typescript-eslint/no-unused-vars': [
         'error',
         { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
