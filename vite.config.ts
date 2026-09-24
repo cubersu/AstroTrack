@@ -4,7 +4,9 @@ import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 import { readFileSync } from 'node:fs';
 
-const pkg = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8')) as { version: string };
+const pkg = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8')) as {
+  version: string;
+};
 
 // The app is a static PWA. `base: './'` keeps every asset path relative so the
 // production build can be served from any sub-path (GitHub Pages, a local
@@ -48,7 +50,11 @@ export default defineConfig({
         // Core astronomical datasets (catalogue, core stars) are precached so the
         // app works offline right after installation. Optional packs live under
         // data/packs/ and are downloaded on demand into IndexedDB instead.
-        globPatterns: ['**/*.{js,css,html,svg,png,ico,webmanifest,woff2}', 'data/core/**/*'],
+        globPatterns: [
+          '**/*.{js,css,html,svg,png,ico,webmanifest,woff2}',
+          'data/packs.json',
+          'data/core/**/*',
+        ],
         globIgnores: ['data/packs/**/*'],
         maximumFileSizeToCacheInBytes: 12 * 1024 * 1024,
         navigateFallback: 'index.html',
