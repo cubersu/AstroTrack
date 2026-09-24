@@ -15,6 +15,7 @@ import type { PackStateRecord } from './dataDb';
 import { IntegrityError, sha256Hex } from './integrity';
 import type { PackManifest, PackRegistry } from './packTypes';
 import { decodeDsoIndex, decodeStars } from '../catalog/format';
+import { decodeLpGrid } from './lightPollutionFormat';
 
 let dataBase: string | null = null;
 
@@ -119,6 +120,8 @@ export async function validatePackContent(
       for (const [p, b] of files) if (p.endsWith('.bin')) decodeStars(b);
       break;
     case 'light-pollution':
+      decodeLpGrid(need('grid.bin'));
+      break;
     case 'comets':
       break;
   }
