@@ -12,11 +12,13 @@
  * response enter through τs (signal) and τb (sky).
  *
  * Empirical layer — clearly labelled as such in the UI and docs:
- *   Recommended = base(type) · F_sb · R_phys^0.6 · (N/4)² · F_mono
+ *   Recommended = base(type) · F_sb · R_phys^0.5 · (N/5)² · F_mono
  *     F_sb  = 10^(0.3 · clamp(SB − SB_ref(type), −3, 3))   (softened SB scaling)
- *     0.6   = softening exponent: in poorer conditions a somewhat lower SNR
- *             is accepted as "recommended"; the Ideal value approaches
- *             reference-quality results.
+ *     0.5   = softening exponent: in poorer conditions a proportionally lower
+ *             SNR is accepted as "recommended" (the SNR penalty is split
+ *             between extra time and accepted quality); matching reference
+ *             quality needs the full R_phys factor, which the Ideal value
+ *             approaches in typical conditions.
  *   Minimum = 0.3 × Recommended   (≈ 55% of the SNR, since SNR ∝ √t)
  *   Ideal   = 3 × Recommended     (≈ 173% of the SNR)
  * Values are clamped to [0.25 h, 30 h] (Recommended) and flagged when capped.
@@ -29,10 +31,10 @@ import { relativeFlux } from './skyBrightness';
 import { clamp } from './units';
 
 export const SB_SOFTENING = 0.3;
-export const R_PHYS_EXPONENT = 0.6;
+export const R_PHYS_EXPONENT = 0.5;
 export const MINIMUM_FRACTION = 0.3;
 export const IDEAL_FACTOR = 3;
-export const REFERENCE_F_NUMBER = 4;
+export const REFERENCE_F_NUMBER = 5;
 export const MONO_TIME_FACTOR = 0.8;
 export const RECOMMENDED_MIN_H = 0.25;
 export const RECOMMENDED_MAX_H = 30;

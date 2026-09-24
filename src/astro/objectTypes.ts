@@ -59,7 +59,7 @@ export interface TypeProfile {
   /**
    * Reference recommended total integration (hours) for an object of this
    * type at `referenceSurfaceBrightness`, under reference conditions
-   * (Bortle 4 zenith 21.1 mag/arcsec², no Moon, f/4, colour camera).
+   * (Bortle 4 zenith 21.1 mag/arcsec², no Moon, f/5, Hα-sensitive colour camera).
    * Empirical baseline — see docs/exposure-engine.md.
    */
   baseIntegrationH: number;
@@ -73,7 +73,7 @@ export const TYPE_PROFILES: Record<DsoType, TypeProfile> = {
     lpExponent: 0.5,
     moonExponent: 0.55,
     assumedSurfaceBrightness: 22.5,
-    baseIntegrationH: 3,
+    baseIntegrationH: 2,
     referenceSurfaceBrightness: 22.0,
   },
   'galaxy-group': {
@@ -82,7 +82,7 @@ export const TYPE_PROFILES: Record<DsoType, TypeProfile> = {
     lpExponent: 0.5,
     moonExponent: 0.55,
     assumedSurfaceBrightness: 22.5,
-    baseIntegrationH: 4,
+    baseIntegrationH: 3,
     referenceSurfaceBrightness: 22.0,
   },
   'open-cluster': {
@@ -91,7 +91,7 @@ export const TYPE_PROFILES: Record<DsoType, TypeProfile> = {
     lpExponent: 0.2,
     moonExponent: 0.2,
     assumedSurfaceBrightness: 21.0,
-    baseIntegrationH: 0.75,
+    baseIntegrationH: 0.5,
     referenceSurfaceBrightness: 21.0,
   },
   'globular-cluster': {
@@ -100,7 +100,7 @@ export const TYPE_PROFILES: Record<DsoType, TypeProfile> = {
     lpExponent: 0.3,
     moonExponent: 0.3,
     assumedSurfaceBrightness: 20.0,
-    baseIntegrationH: 1,
+    baseIntegrationH: 0.75,
     referenceSurfaceBrightness: 20.0,
   },
   'emission-nebula': {
@@ -109,7 +109,7 @@ export const TYPE_PROFILES: Record<DsoType, TypeProfile> = {
     lpExponent: 0.4,
     moonExponent: 0.45,
     assumedSurfaceBrightness: 22.0,
-    baseIntegrationH: 3,
+    baseIntegrationH: 2,
     referenceSurfaceBrightness: 22.0,
   },
   'hii-region': {
@@ -118,7 +118,7 @@ export const TYPE_PROFILES: Record<DsoType, TypeProfile> = {
     lpExponent: 0.4,
     moonExponent: 0.45,
     assumedSurfaceBrightness: 22.0,
-    baseIntegrationH: 3,
+    baseIntegrationH: 2,
     referenceSurfaceBrightness: 22.0,
   },
   'supernova-remnant': {
@@ -127,7 +127,7 @@ export const TYPE_PROFILES: Record<DsoType, TypeProfile> = {
     lpExponent: 0.45,
     moonExponent: 0.5,
     assumedSurfaceBrightness: 23.0,
-    baseIntegrationH: 5,
+    baseIntegrationH: 3.5,
     referenceSurfaceBrightness: 23.0,
   },
   'planetary-nebula': {
@@ -136,7 +136,7 @@ export const TYPE_PROFILES: Record<DsoType, TypeProfile> = {
     lpExponent: 0.5,
     moonExponent: 0.5,
     assumedSurfaceBrightness: 20.5,
-    baseIntegrationH: 1.5,
+    baseIntegrationH: 1,
     referenceSurfaceBrightness: 19.5,
   },
   'reflection-nebula': {
@@ -145,7 +145,7 @@ export const TYPE_PROFILES: Record<DsoType, TypeProfile> = {
     lpExponent: 0.6,
     moonExponent: 0.65,
     assumedSurfaceBrightness: 22.5,
-    baseIntegrationH: 4,
+    baseIntegrationH: 3,
     referenceSurfaceBrightness: 22.0,
   },
   'emission-reflection-nebula': {
@@ -154,7 +154,7 @@ export const TYPE_PROFILES: Record<DsoType, TypeProfile> = {
     lpExponent: 0.5,
     moonExponent: 0.55,
     assumedSurfaceBrightness: 22.0,
-    baseIntegrationH: 3,
+    baseIntegrationH: 2,
     referenceSurfaceBrightness: 22.0,
   },
   'cluster-nebula': {
@@ -163,7 +163,7 @@ export const TYPE_PROFILES: Record<DsoType, TypeProfile> = {
     lpExponent: 0.4,
     moonExponent: 0.45,
     assumedSurfaceBrightness: 21.5,
-    baseIntegrationH: 2,
+    baseIntegrationH: 1.5,
     referenceSurfaceBrightness: 21.5,
   },
   nebula: {
@@ -172,7 +172,7 @@ export const TYPE_PROFILES: Record<DsoType, TypeProfile> = {
     lpExponent: 0.5,
     moonExponent: 0.55,
     assumedSurfaceBrightness: 22.5,
-    baseIntegrationH: 3,
+    baseIntegrationH: 2.5,
     referenceSurfaceBrightness: 22.0,
   },
   'dark-nebula': {
@@ -181,7 +181,7 @@ export const TYPE_PROFILES: Record<DsoType, TypeProfile> = {
     lpExponent: 0.7,
     moonExponent: 0.75,
     assumedSurfaceBrightness: 22.5,
-    baseIntegrationH: 5,
+    baseIntegrationH: 4,
     referenceSurfaceBrightness: 22.5,
   },
   'star-cloud': {
@@ -190,7 +190,7 @@ export const TYPE_PROFILES: Record<DsoType, TypeProfile> = {
     lpExponent: 0.3,
     moonExponent: 0.3,
     assumedSurfaceBrightness: 21.0,
-    baseIntegrationH: 1,
+    baseIntegrationH: 0.75,
     referenceSurfaceBrightness: 21.0,
   },
   star: {

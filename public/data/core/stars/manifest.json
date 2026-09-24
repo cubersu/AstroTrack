@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "id": "stars-core",
+  "kind": "star-catalogue",
+  "title": "Bright stars (HYG v4.1, ≤ 8 mag)",
+  "bundled": true,
+  "optional": false,
+  "basePath": "core/stars/",
+  "records": 41487,
+  "license": "CC-BY-SA-4.0",
+  "attribution": "HYG Database by David Nash (astronexus), CC BY-SA 4.0 — https://codeberg.org/astronexus/hyg",
+  "sourceUrl": "https://codeberg.org/astronexus/hyg",
+  "sourceChecksums": {
+    "hygdata_v41.csv": "d9f69fd86bbf90a4e4d52b4c5c53eacfa6dfc0bfdef85bfd94f095e0bebe4ebd"
+  },
+  "magLimit": 8,
+  "version": "2026.09.24-3783566d",
+  "released": "2026-09-24",
+  "contentHash": "3783566d6d28",
+  "files": [
+    {
+      "path": "names.json",
+      "size": 96193,
+      "sha256": "1a990a9b40c5900e4f6a1445c8e30055023f0c9136224ddb67180c721fc5a237"
+    },
+    {
+      "path": "stars.bin",
+      "size": 497860,
+      "sha256": "1a227ed48cacf60cc4ecdc09df9cdb9091b74be3dd21b9181a0b88bd68983711"
+    }
+  ],
+  "totalSize": 594053
+}

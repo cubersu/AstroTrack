@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "packId": "dso-core",
+  "version": "",
+  "count": 13375,
+  "detailChunkSize": 500,
+  "detailChunks": 27,
+  "generated": "2026-09-24",
+  "sources": [
+    {
+      "name": "OpenNGC NGC.csv",
+      "url": "https://raw.githubusercontent.com/mattiaverga/OpenNGC/master/database_files/NGC.csv",
+      "license": "CC-BY-SA-4.0",
+      "sha256": "be150bdaa1997dacbcb39f303074403edec7a953b589b36d5f1c4522c0cc6fae"
+    },
+    {
+      "name": "OpenNGC addendum.csv",
+      "url": "https://raw.githubusercontent.com/mattiaverga/OpenNGC/master/database_files/addendum.csv",
+      "license": "CC-BY-SA-4.0",
+      "sha256": "1d8f0914e643ada325a5a94d88d8fefad6a4937a2f77cc34f21483af22b11983"
+    }
+  ],
+  "typeCounts": {
+    "galaxy": 10522,
+    "galaxy-group": 270,
+    "open-cluster": 663,
+    "globular-cluster": 208,
+    "emission-nebula": 8,
+    "reflection-nebula": 38,
+    "emission-reflection-nebula": 0,
+    "dark-nebula": 2,
+    "planetary-nebula": 130,
+    "supernova-remnant": 11,
+    "hii-region": 83,
+    "star-cloud": 64,
+    "cluster-nebula": 67,
+    "nebula": 94,
+    "star": 793,
+    "nonexistent": 3,
+    "other": 419
+  }
+}

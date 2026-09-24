@@ -170,21 +170,21 @@ describe('integration guidance', () => {
     moonRelFlux: 0,
     meanAirmass: 1,
     extinctionK: 0.25,
-    fNumber: 4,
+    fNumber: 5,
     transmission: { signal: 1, sky: 1 },
     mono: false,
   };
   it('matches the base value under reference conditions', () => {
     const r = integrationGuidance(baseIn);
-    expect(r.recommendedH).toBeCloseTo(3, 6);
-    expect(r.minimumH).toBeCloseTo(0.9, 6);
-    expect(r.idealH).toBeCloseTo(9, 6);
+    expect(r.recommendedH).toBeCloseTo(2, 6);
+    expect(r.minimumH).toBeCloseTo(0.6, 6);
+    expect(r.idealH).toBeCloseTo(6, 6);
   });
   it('grows with sky brightness, f-ratio and faintness', () => {
     const r0 = integrationGuidance(baseIn).recommendedH;
     expect(integrationGuidance({ ...baseIn, siteSqm: 18.5 }).recommendedH).toBeGreaterThan(r0 * 2);
-    expect(integrationGuidance({ ...baseIn, fNumber: 5.6 }).recommendedH).toBeCloseTo(
-      r0 * (5.6 / 4) ** 2,
+    expect(integrationGuidance({ ...baseIn, fNumber: 7 }).recommendedH).toBeCloseTo(
+      r0 * (7 / 5) ** 2,
       4,
     );
     expect(integrationGuidance({ ...baseIn, sbV: 23 }).recommendedH).toBeGreaterThan(r0);

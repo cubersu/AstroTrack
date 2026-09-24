@@ -1,0 +1,173 @@
+{
+  "schema": 1,
+  "id": "dso-core",
+  "kind": "dso-catalogue",
+  "title": "Deep-sky catalogue (OpenNGC)",
+  "bundled": true,
+  "optional": false,
+  "basePath": "core/dso/",
+  "records": 13375,
+  "license": "CC-BY-SA-4.0",
+  "attribution": "OpenNGC by Mattia Verga, CC BY-SA 4.0 — https://github.com/mattiaverga/OpenNGC",
+  "sourceUrl": "https://github.com/mattiaverga/OpenNGC",
+  "sourceChecksums": {
+    "NGC.csv": "be150bdaa1997dacbcb39f303074403edec7a953b589b36d5f1c4522c0cc6fae",
+    "addendum.csv": "1d8f0914e643ada325a5a94d88d8fefad6a4937a2f77cc34f21483af22b11983"
+  },
+  "version": "2026.09.24-3e4b7804",
+  "released": "2026-09-24",
+  "contentHash": "3e4b7804ab39",
+  "files": [
+    {
+      "path": "catalogue.json",
+      "size": 1146,
+      "sha256": "67b87bb7b71c562b82efa2dfd9c440005dcda8d01b862b61eb6c29c0c20a6e3a"
+    },
+    {
+      "path": "details/000.json",
+      "size": 130732,
+      "sha256": "c087c503943f36fcbee7e757d4ddd0eba40c14aaa2d4296d3b1ce52606917198"
+    },
+    {
+      "path": "details/001.json",
+      "size": 128260,
+      "sha256": "79e9be72416fda8e6a39b7e91d13b2d2916ecef002e97f80809001c63e08611a"
+    },
+    {
+      "path": "details/002.json",
+      "size": 135248,
+      "sha256": "84c920a8351a61d1cc9f623e5118d7295ef731f2bee6355f18726cc8b24710c8"
+    },
+    {
+      "path": "details/003.json",
+      "size": 134451,
+      "sha256": "3fbd875089ceb92968fce1eb6f03ce1886a6ef16f037d2fe2c75321caf4c9f2e"
+    },
+    {
+      "path": "details/004.json",
+      "size": 131731,
+      "sha256": "7be2875b1246498c5de1cef1ace549b56551fbe9f0062bcff656fdfdc1cbdc4a"
+    },
+    {
+      "path": "details/005.json",
+      "size": 118327,
+      "sha256": "ba8a6e133f5e6b8a255ce75fa16a12f81b010f959796b1cd5ec9946a40266055"
+    },
+    {
+      "path": "details/006.json",
+      "size": 107230,
+      "sha256": "31a8e4dc81bf8c8899e1bcca78c27f9421b321298571e5e97d3cb9f7cadb8e2b"
+    },
+    {
+      "path": "details/007.json",
+      "size": 113175,
+      "sha256": "4be5c71c9c413ac3c57b99ca3bd52e48c58e8336f48806c278fdfc87829a63d7"
+    },
+    {
+      "path": "details/008.json",
+      "size": 131012,
+      "sha256": "60118d05d4db0be59a865148498e0f830b726424d25bc46756d8c8d4ce903380"
+    },
+    {
+      "path": "details/009.json",
+      "size": 137495,
+      "sha256": "509ecdb4800911e6d8359d298eedfedbfb1f109638c54785d1989a0176d7b830"
+    },
+    {
+      "path": "details/010.json",
+      "size": 134537,
+      "sha256": "fea60e0ea09b36acac6b644e202721b37827b9f9100d62592e9096787d862b90"
+    },
+    {
+      "path": "details/011.json",
+      "size": 113459,
+      "sha256": "0ec8106002366b33bc906b61270d895bec272de6bf312613a27a80403fdb3088"
+    },
+    {
+      "path": "details/012.json",
+      "size": 138282,
+      "sha256": "58ea6d90f5fb3605025d5f2cc1d27c4fe0c50e028765d3bb993f0d6a0bb007f3"
+    },
+    {
+      "path": "details/013.json",
+      "size": 125851,
+      "sha256": "10c24daa8d2140d3d0c25b180fd3cd4a803b55e62fe35a2a0b7e0c4b86a6840f"
+    },
+    {
+      "path": "details/014.json",
+      "size": 125572,
+      "sha256": "f099eb34be60069bc3537f319cb40d197b946647892a960209e5beeaa4b4b0c6"
+    },
+    {
+      "path": "details/015.json",
+      "size": 125126,
+      "sha256": "917338d9aa7e7176e61c205d9acab24a530342ade38864884482983d9b9f37a2"
+    },
+    {
+      "path": "details/016.json",
+      "size": 118566,
+      "sha256": "01c1dcf6b8562a11bffb43f936f54f7709a0b07159b30a3fc1b1dd4c430ad3cc"
+    },
+    {
+      "path": "details/017.json",
+      "size": 132680,
+      "sha256": "a7489009af74375b8f2d4552110797af1ea55d1f9e368f436d531599de8f9aa4"
+    },
+    {
+      "path": "details/018.json",
+      "size": 136260,
+      "sha256": "d306672c71504bd69e056a9c11859f0f00c3e6c8536740e8cefd5cc134ef1304"
+    },
+    {
+      "path": "details/019.json",
+      "size": 137146,
+      "sha256": "506b6a3aa1a6d6e015eec578c324513ca80d52be7eb825d5b5beadfce436eb75"
+    },
+    {
+      "path": "details/020.json",
+      "size": 135171,
+      "sha256": "91224635df73d9ede5db551c57c2599847106f0387260f58030df02a7bae7474"
+    },
+    {
+      "path": "details/021.json",
+      "size": 129881,
+      "sha256": "20268c73b72b689cfadedc52f26703bea0b4b93f636edbd53456bea1aa0df81a"
+    },
+    {
+      "path": "details/022.json",
+      "size": 123362,
+      "sha256": "bb49e98b748e3b7b7108321c8c4c2e69b51af1221d019c1702e26bd37949d307"
+    },
+    {
+      "path": "details/023.json",
+      "size": 126064,
+      "sha256": "e46f5fe31c0c0e80f92009dc30d2f5235d42ba46735b7306fdde9978569c7281"
+    },
+    {
+      "path": "details/024.json",
+      "size": 126660,
+      "sha256": "32c28b888cc18e8d28bfcf93bf686badd703b0e6c5956bd54e8b0846877e2ddc"
+    },
+    {
+      "path": "details/025.json",
+      "size": 132401,
+      "sha256": "0887e644e3fb4c7f0f3164235fffad86d4c371348f302aa656f68030a21ea1fa"
+    },
+    {
+      "path": "details/026.json",
+      "size": 99584,
+      "sha256": "192574f08558cb3db944abcaf5736ed19d3ced138c7c9282399152e1acd06d8c"
+    },
+    {
+      "path": "index.bin",
+      "size": 468141,
+      "sha256": "5bf131c7a0c4897c4aa9c216cddff4b325f413dd34ddd819496fd7e270d654ff"
+    },
+    {
+      "path": "names.json",
+      "size": 792971,
+      "sha256": "dc8507b9ecb49d470b41f8ce3fa840c234cda69f67b1aae809c6831080c8dec4"
+    }
+  ],
+  "totalSize": 4690521
+}

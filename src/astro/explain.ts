@@ -52,7 +52,8 @@ export type ReasonCode =
   | 'hard.tooLarge'
   | 'hard.noOptics'
   | 'hard.notScored'
-  | 'hard.nowPassed';
+  | 'hard.nowPassed'
+  | 'data.insufficient';
 
 export interface Reason {
   code: ReasonCode;

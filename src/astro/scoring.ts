@@ -15,6 +15,8 @@ import {
   MOON_TOLERANCE_FACTOR,
   TRACKING_RATIO_TABLE,
   UNKNOWN_ACCESSIBILITY,
+  UNKNOWN_SIZE_FRAMING,
+  INSUFFICIENT_DATA_CAP,
   altitudeQualityTable,
   classifyScore,
   confidenceLevel,
@@ -144,6 +146,8 @@ export interface MoonSummary {
 
 export interface DsoEvaluation {
   targetId: string;
+  /** Size and photometry both missing: score capped (see INSUFFICIENT_DATA_CAP). */
+  insufficientData: boolean;
   score: number;
   rawScore: number;
   scoreClass: ScoreClass;
@@ -251,6 +255,7 @@ export function evaluateDso(
   const components = emptyComponents();
   const base: DsoEvaluation = {
     targetId: target.id,
+    insufficientData: false,
     score: 0,
     rawScore: 0,
     scoreClass: 'unsuitable',
@@ -793,7 +798,7 @@ export function evaluateDso(
         ...framing,
         fill: Number.NaN,
         targetPx: Number.NaN,
-        score: 50,
+        score: UNKNOWN_SIZE_FRAMING,
         tooSmall: false,
         tooLarge: false,
         fits: true,
@@ -1005,6 +1010,16 @@ export function evaluateDso(
     mono: monoCam,
   });
 
+  if (shape.majorArcmin <= 0 && sb.basis === 'assumed' && target.type !== 'dark-nebula') {
+    base.insufficientData = true;
+    reasons.push({
+      code: 'data.insufficient',
+      polarity: 'negative',
+      component: 'hard',
+      weight: 90,
+    });
+  }
+
   /* ---------- total ---------- */
   let total = 0;
   for (const k of Object.keys(components) as AstroComponent[]) {
@@ -1026,6 +1041,7 @@ function finalize(ev: DsoEvaluation, conf: number, raw: number, s: ScoringSettin
   } else if (h.length > 0) {
     score = Math.min(score, HARD_CONSTRAINT_CAP);
   }
+  if (ev.insufficientData) score = Math.min(score, INSUFFICIENT_DATA_CAP);
   ev.rawScore = Math.round(raw * 10) / 10;
   ev.score = Math.round(Math.max(0, Math.min(100, score)));
   ev.scoreClass = classifyScore(ev.score, s.classThresholds);

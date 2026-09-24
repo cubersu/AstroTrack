@@ -86,7 +86,15 @@ export const ACCESSIBILITY_MAG_TABLE: ReadonlyArray<readonly [number, number]> =
 /** Accessibility for dark nebulae (contrast depends on the star field; no photometry). */
 export const DARK_NEBULA_ACCESSIBILITY = 40;
 /** Accessibility when nothing is known photometrically. */
-export const UNKNOWN_ACCESSIBILITY = 50;
+export const UNKNOWN_ACCESSIBILITY = 40;
+/** Framing component when the catalogue has no angular size. */
+export const UNKNOWN_SIZE_FRAMING = 40;
+/**
+ * Data-quality cap: when both the angular size and all photometry are missing,
+ * photographability cannot be assessed and the score is capped here (the
+ * object can still be found and planned manually).
+ */
+export const INSUFFICIENT_DATA_CAP = 50;
 
 /** Achievable sub / desired sub → tracking/exposure compatibility score. */
 export const TRACKING_RATIO_TABLE: ReadonlyArray<readonly [number, number]> = [

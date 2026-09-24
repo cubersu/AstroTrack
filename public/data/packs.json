@@ -1,0 +1,1203 @@
+{
+  "schema": 1,
+  "generated": "2026-09-24",
+  "packs": [
+    {
+      "schema": 1,
+      "id": "dso-core",
+      "kind": "dso-catalogue",
+      "title": "Deep-sky catalogue (OpenNGC)",
+      "bundled": true,
+      "optional": false,
+      "basePath": "core/dso/",
+      "records": 13375,
+      "license": "CC-BY-SA-4.0",
+      "attribution": "OpenNGC by Mattia Verga, CC BY-SA 4.0 — https://github.com/mattiaverga/OpenNGC",
+      "sourceUrl": "https://github.com/mattiaverga/OpenNGC",
+      "sourceChecksums": {
+        "NGC.csv": "be150bdaa1997dacbcb39f303074403edec7a953b589b36d5f1c4522c0cc6fae",
+        "addendum.csv": "1d8f0914e643ada325a5a94d88d8fefad6a4937a2f77cc34f21483af22b11983"
+      },
+      "version": "2026.09.24-3e4b7804",
+      "released": "2026-09-24",
+      "contentHash": "3e4b7804ab39",
+      "files": [
+        {
+          "path": "catalogue.json",
+          "size": 1146,
+          "sha256": "67b87bb7b71c562b82efa2dfd9c440005dcda8d01b862b61eb6c29c0c20a6e3a"
+        },
+        {
+          "path": "details/000.json",
+          "size": 130732,
+          "sha256": "c087c503943f36fcbee7e757d4ddd0eba40c14aaa2d4296d3b1ce52606917198"
+        },
+        {
+          "path": "details/001.json",
+          "size": 128260,
+          "sha256": "79e9be72416fda8e6a39b7e91d13b2d2916ecef002e97f80809001c63e08611a"
+        },
+        {
+          "path": "details/002.json",
+          "size": 135248,
+          "sha256": "84c920a8351a61d1cc9f623e5118d7295ef731f2bee6355f18726cc8b24710c8"
+        },
+        {
+          "path": "details/003.json",
+          "size": 134451,
+          "sha256": "3fbd875089ceb92968fce1eb6f03ce1886a6ef16f037d2fe2c75321caf4c9f2e"
+        },
+        {
+          "path": "details/004.json",
+          "size": 131731,
+          "sha256": "7be2875b1246498c5de1cef1ace549b56551fbe9f0062bcff656fdfdc1cbdc4a"
+        },
+        {
+          "path": "details/005.json",
+          "size": 118327,
+          "sha256": "ba8a6e133f5e6b8a255ce75fa16a12f81b010f959796b1cd5ec9946a40266055"
+        },
+        {
+          "path": "details/006.json",
+          "size": 107230,
+          "sha256": "31a8e4dc81bf8c8899e1bcca78c27f9421b321298571e5e97d3cb9f7cadb8e2b"
+        },
+        {
+          "path": "details/007.json",
+          "size": 113175,
+          "sha256": "4be5c71c9c413ac3c57b99ca3bd52e48c58e8336f48806c278fdfc87829a63d7"
+        },
+        {
+          "path": "details/008.json",
+          "size": 131012,
+          "sha256": "60118d05d4db0be59a865148498e0f830b726424d25bc46756d8c8d4ce903380"
+        },
+        {
+          "path": "details/009.json",
+          "size": 137495,
+          "sha256": "509ecdb4800911e6d8359d298eedfedbfb1f109638c54785d1989a0176d7b830"
+        },
+        {
+          "path": "details/010.json",
+          "size": 134537,
+          "sha256": "fea60e0ea09b36acac6b644e202721b37827b9f9100d62592e9096787d862b90"
+        },
+        {
+          "path": "details/011.json",
+          "size": 113459,
+          "sha256": "0ec8106002366b33bc906b61270d895bec272de6bf312613a27a80403fdb3088"
+        },
+        {
+          "path": "details/012.json",
+          "size": 138282,
+          "sha256": "58ea6d90f5fb3605025d5f2cc1d27c4fe0c50e028765d3bb993f0d6a0bb007f3"
+        },
+        {
+          "path": "details/013.json",
+          "size": 125851,
+          "sha256": "10c24daa8d2140d3d0c25b180fd3cd4a803b55e62fe35a2a0b7e0c4b86a6840f"
+        },
+        {
+          "path": "details/014.json",
+          "size": 125572,
+          "sha256": "f099eb34be60069bc3537f319cb40d197b946647892a960209e5beeaa4b4b0c6"
+        },
+        {
+          "path": "details/015.json",
+          "size": 125126,
+          "sha256": "917338d9aa7e7176e61c205d9acab24a530342ade38864884482983d9b9f37a2"
+        },
+        {
+          "path": "details/016.json",
+          "size": 118566,
+          "sha256": "01c1dcf6b8562a11bffb43f936f54f7709a0b07159b30a3fc1b1dd4c430ad3cc"
+        },
+        {
+          "path": "details/017.json",
+          "size": 132680,
+          "sha256": "a7489009af74375b8f2d4552110797af1ea55d1f9e368f436d531599de8f9aa4"
+        },
+        {
+          "path": "details/018.json",
+          "size": 136260,
+          "sha256": "d306672c71504bd69e056a9c11859f0f00c3e6c8536740e8cefd5cc134ef1304"
+        },
+        {
+          "path": "details/019.json",
+          "size": 137146,
+          "sha256": "506b6a3aa1a6d6e015eec578c324513ca80d52be7eb825d5b5beadfce436eb75"
+        },
+        {
+          "path": "details/020.json",
+          "size": 135171,
+          "sha256": "91224635df73d9ede5db551c57c2599847106f0387260f58030df02a7bae7474"
+        },
+        {
+          "path": "details/021.json",
+          "size": 129881,
+          "sha256": "20268c73b72b689cfadedc52f26703bea0b4b93f636edbd53456bea1aa0df81a"
+        },
+        {
+          "path": "details/022.json",
+          "size": 123362,
+          "sha256": "bb49e98b748e3b7b7108321c8c4c2e69b51af1221d019c1702e26bd37949d307"
+        },
+        {
+          "path": "details/023.json",
+          "size": 126064,
+          "sha256": "e46f5fe31c0c0e80f92009dc30d2f5235d42ba46735b7306fdde9978569c7281"
+        },
+        {
+          "path": "details/024.json",
+          "size": 126660,
+          "sha256": "32c28b888cc18e8d28bfcf93bf686badd703b0e6c5956bd54e8b0846877e2ddc"
+        },
+        {
+          "path": "details/025.json",
+          "size": 132401,
+          "sha256": "0887e644e3fb4c7f0f3164235fffad86d4c371348f302aa656f68030a21ea1fa"
+        },
+        {
+          "path": "details/026.json",
+          "size": 99584,
+          "sha256": "192574f08558cb3db944abcaf5736ed19d3ced138c7c9282399152e1acd06d8c"
+        },
+        {
+          "path": "index.bin",
+          "size": 468141,
+          "sha256": "5bf131c7a0c4897c4aa9c216cddff4b325f413dd34ddd819496fd7e270d654ff"
+        },
+        {
+          "path": "names.json",
+          "size": 792971,
+          "sha256": "dc8507b9ecb49d470b41f8ce3fa840c234cda69f67b1aae809c6831080c8dec4"
+        }
+      ],
+      "totalSize": 4690521
+    },
+    {
+      "schema": 1,
+      "id": "stars-core",
+      "kind": "star-catalogue",
+      "title": "Bright stars (HYG v4.1, ≤ 8 mag)",
+      "bundled": true,
+      "optional": false,
+      "basePath": "core/stars/",
+      "records": 41487,
+      "license": "CC-BY-SA-4.0",
+      "attribution": "HYG Database by David Nash (astronexus), CC BY-SA 4.0 — https://codeberg.org/astronexus/hyg",
+      "sourceUrl": "https://codeberg.org/astronexus/hyg",
+      "sourceChecksums": {
+        "hygdata_v41.csv": "d9f69fd86bbf90a4e4d52b4c5c53eacfa6dfc0bfdef85bfd94f095e0bebe4ebd"
+      },
+      "magLimit": 8,
+      "version": "2026.09.24-3783566d",
+      "released": "2026-09-24",
+      "contentHash": "3783566d6d28",
+      "files": [
+        {
+          "path": "names.json",
+          "size": 96193,
+          "sha256": "1a990a9b40c5900e4f6a1445c8e30055023f0c9136224ddb67180c721fc5a237"
+        },
+        {
+          "path": "stars.bin",
+          "size": 497860,
+          "sha256": "1a227ed48cacf60cc4ecdc09df9cdb9091b74be3dd21b9181a0b88bd68983711"
+        }
+      ],
+      "totalSize": 594053
+    },
+    {
+      "schema": 1,
+      "id": "stars-hyg-deep",
+      "kind": "star-tiles",
+      "title": "Additional stars (HYG v4.1, fainter than 8 mag)",
+      "bundled": false,
+      "optional": true,
+      "basePath": "packs/stars-hyg-deep/",
+      "records": 78138,
+      "license": "CC-BY-SA-4.0",
+      "attribution": "HYG Database by David Nash (astronexus), CC BY-SA 4.0 — https://codeberg.org/astronexus/hyg",
+      "sourceUrl": "https://codeberg.org/astronexus/hyg",
+      "sourceChecksums": {
+        "hygdata_v41.csv": "d9f69fd86bbf90a4e4d52b4c5c53eacfa6dfc0bfdef85bfd94f095e0bebe4ebd"
+      },
+      "tiling": {
+        "scheme": "healpix-nested",
+        "order": 2
+      },
+      "version": "2026.09.24-8e351259",
+      "released": "2026-09-24",
+      "contentHash": "8e351259f9b5",
+      "files": [
+        {
+          "path": "tiles.json",
+          "size": 3048,
+          "sha256": "cbc7dcaa9733909650d3578cb1fc2bf4d4f845405c84eb65df44abf6af03de87"
+        },
+        {
+          "path": "tiles/0000.bin",
+          "size": 4348,
+          "sha256": "e98e6f0a291a7133b24484ddc88bd8ef9587c4382beb4e7b7c7664890ba4216c"
+        },
+        {
+          "path": "tiles/0001.bin",
+          "size": 4984,
+          "sha256": "481602a026386efbec47f9d8ea336f1d58542196f495d257697d0a11e5cd94b4"
+        },
+        {
+          "path": "tiles/0002.bin",
+          "size": 3856,
+          "sha256": "e07eafc644d0d42d6e67f9293def360267701af9eb10bcb7bacbb3612e407c26"
+        },
+        {
+          "path": "tiles/0003.bin",
+          "size": 3496,
+          "sha256": "08aaa9dec3d0786f3d62579229362d322c9485ed2f15ef16d08fbdb25418c7f8"
+        },
+        {
+          "path": "tiles/0004.bin",
+          "size": 4228,
+          "sha256": "22ac4193297a1685b42e0a9a83b0d42a7f959af2ae45ce80483a84f97b99acf9"
+        },
+        {
+          "path": "tiles/0005.bin",
+          "size": 4516,
+          "sha256": "e22d295f045d9b4d7a8a82ca42c403cb475d10846a6cdabcce6e6a7eba9da659"
+        },
+        {
+          "path": "tiles/0006.bin",
+          "size": 5152,
+          "sha256": "ecc1fe0f579333440a1efea5fb084e728e8db645da219c61604ae008e7ba9571"
+        },
+        {
+          "path": "tiles/0007.bin",
+          "size": 4432,
+          "sha256": "800fc7790156db7ce5ad29dd695d63d64eb5a46047a6a089541d40f31bf73811"
+        },
+        {
+          "path": "tiles/0008.bin",
+          "size": 3844,
+          "sha256": "b65c1d239616202929bcac3ba9f80477e74770d7920d41ea21aac8fbb20c75ba"
+        },
+        {
+          "path": "tiles/0009.bin",
+          "size": 4384,
+          "sha256": "1f3aed1f35e8d607f6a106bb35aff0b1e31545970fdc939c78dcf86caff2237d"
+        },
+        {
+          "path": "tiles/0010.bin",
+          "size": 4552,
+          "sha256": "b3dc651c760f1489524484603da191cf91a1dd1b178df5351dc51a25fcc3d777"
+        },
+        {
+          "path": "tiles/0011.bin",
+          "size": 6244,
+          "sha256": "e302748a8a1000f8c05330dc28d9401dc0705fdad88f8276987f924cd0970be5"
+        },
+        {
+          "path": "tiles/0012.bin",
+          "size": 7012,
+          "sha256": "d7f1f330070a415ea80b89b69b55887cc69dd75f6918bf530ee3252d49b854f7"
+        },
+        {
+          "path": "tiles/0013.bin",
+          "size": 4924,
+          "sha256": "4112c99dc7ed527112fe47c5ac94d0597ce74ac270c5890f1b74c0aac7531ad0"
+        },
+        {
+          "path": "tiles/0014.bin",
+          "size": 6244,
+          "sha256": "a5ba0d5bf4204d77d60538fb8de1a72318ded1166cfc9d4ed42ce1b4bc88550f"
+        },
+        {
+          "path": "tiles/0015.bin",
+          "size": 4420,
+          "sha256": "e15807f531a86e773941355cd47743b43e13dce3c9618e0ee990cfd9d40530d9"
+        },
+        {
+          "path": "tiles/0016.bin",
+          "size": 3784,
+          "sha256": "b48c9ea0684a26a2166fc6d6a177b3116c0a0c7860272c373c046071687adad7"
+        },
+        {
+          "path": "tiles/0017.bin",
+          "size": 3880,
+          "sha256": "85d1930e13ed74c368ba537a257cd9081fe8c1f90be6d3904bf543a618a2904c"
+        },
+        {
+          "path": "tiles/0018.bin",
+          "size": 4120,
+          "sha256": "81b48a592eeb6e680484d3f5ad3dc1faf1311f1ac178c042d62ef1589ef0f409"
+        },
+        {
+          "path": "tiles/0019.bin",
+          "size": 4144,
+          "sha256": "ac2b49aa3c0a4fcda7513918515f4ac91fe7bc1f512ed9e8e12ddb41e42f37be"
+        },
+        {
+          "path": "tiles/0020.bin",
+          "size": 4600,
+          "sha256": "3542eca6af6cff9af30fcbc6db012fd7d03ed0af716ec29e9c6965f5d89b5a90"
+        },
+        {
+          "path": "tiles/0021.bin",
+          "size": 5692,
+          "sha256": "29bcfc82d7a228a7b0ae9ec685d7f1675bc5e6620b6cb1fa97f41a23d69a20fc"
+        },
+        {
+          "path": "tiles/0022.bin",
+          "size": 5764,
+          "sha256": "ad6072df724ed01a0883c4397684f792e1723eb2fbb0e43ff5940add13c77b05"
+        },
+        {
+          "path": "tiles/0023.bin",
+          "size": 5512,
+          "sha256": "88df3ecfc469adbfb143498403b46974f898c2d2dddc4d83bad981197fd630e0"
+        },
+        {
+          "path": "tiles/0024.bin",
+          "size": 4504,
+          "sha256": "52b60c218345093ecbdbb36727e21362fa992d4a61bea3ef8ff6ab283337f075"
+        },
+        {
+          "path": "tiles/0025.bin",
+          "size": 5620,
+          "sha256": "cd3ecb1b49c09cec6689bac44ce6bc429a9751dd100ad3045b2cc16d0768cb54"
+        },
+        {
+          "path": "tiles/0026.bin",
+          "size": 5104,
+          "sha256": "a0d951d1e7710878cc81f3c7da879e2794a1115d10c10e91095d27eb290b89e9"
+        },
+        {
+          "path": "tiles/0027.bin",
+          "size": 4396,
+          "sha256": "16bad8ec6376ec3a46fa68db0fe07005a6cbd5882ddc9e1d0d2172fea9eb27ec"
+        },
+        {
+          "path": "tiles/0028.bin",
+          "size": 4960,
+          "sha256": "e212279e95758b72d2b5f2f7b4472ae54daf26c43917c92c1dd1d0c690fd0004"
+        },
+        {
+          "path": "tiles/0029.bin",
+          "size": 5176,
+          "sha256": "45520616bb3133557ff30fc146560622915be28fbf765c501c5b85129eb0e768"
+        },
+        {
+          "path": "tiles/0030.bin",
+          "size": 4732,
+          "sha256": "6c3d80299239ec934e53c3b3840f7378c7978f6545551cd7dfbf986e058ac178"
+        },
+        {
+          "path": "tiles/0031.bin",
+          "size": 4612,
+          "sha256": "9f538e36c3a16a0e99258b7e4ffa07f30034644bf17c6c3ff7b9cebd0340d6d3"
+        },
+        {
+          "path": "tiles/0032.bin",
+          "size": 5284,
+          "sha256": "82376549c4ed44f283534c441fbd37081e301dd066dd8d89a1790861c2ad6d63"
+        },
+        {
+          "path": "tiles/0033.bin",
+          "size": 4780,
+          "sha256": "52ad9a0e5084364e30314f982d34f601b601912384f3009ee87912333eb078a4"
+        },
+        {
+          "path": "tiles/0034.bin",
+          "size": 5236,
+          "sha256": "36054a86fe80ed482930beeb2cca88c8521b610a0bad09d8983770941e140d58"
+        },
+        {
+          "path": "tiles/0035.bin",
+          "size": 4912,
+          "sha256": "e2836a5299ee384c72178d0c5851a7bad6b4926c0810e3458aef50669c3bfe7e"
+        },
+        {
+          "path": "tiles/0036.bin",
+          "size": 4720,
+          "sha256": "a28eeb04e962b7f3bb56df41e9fe61665ca3f33f766afce2c007e9b8e984f27c"
+        },
+        {
+          "path": "tiles/0037.bin",
+          "size": 4696,
+          "sha256": "dac7dec824ec43822af14b3b63475305409f933573acde34acb9a74c402a9912"
+        },
+        {
+          "path": "tiles/0038.bin",
+          "size": 4876,
+          "sha256": "5920f73f7e66ff54fd144d834e2c5359d8161fe33267a7bd5fb381b2461e0164"
+        },
+        {
+          "path": "tiles/0039.bin",
+          "size": 4240,
+          "sha256": "27356c4848d597654d6960010f245de8655a997c483bda14f83896722d468453"
+        },
+        {
+          "path": "tiles/0040.bin",
+          "size": 6232,
+          "sha256": "b64d348619c1778cfbfc3addbeb8732a0f41a25dc1471b83de925a6c3fb938ac"
+        },
+        {
+          "path": "tiles/0041.bin",
+          "size": 5320,
+          "sha256": "43417edb72b780c32b6e49a23ed7fad9b38e63a49e2945a6f4529534bc5f5bb5"
+        },
+        {
+          "path": "tiles/0042.bin",
+          "size": 6268,
+          "sha256": "3f4417e3828acabfeadd5516fa38b5ea0b13470ba6431d2307faa7ca79a8b7fd"
+        },
+        {
+          "path": "tiles/0043.bin",
+          "size": 5836,
+          "sha256": "28b6dbbef682d32bc3eed26a8f404ac928ff4b1bcd1e9db756d70e363b05997a"
+        },
+        {
+          "path": "tiles/0044.bin",
+          "size": 4684,
+          "sha256": "65089b6e402d218390b8b6150863ea225f2182aabc6243633aff3c93fe7fdcdc"
+        },
+        {
+          "path": "tiles/0045.bin",
+          "size": 3868,
+          "sha256": "b4a614ab5b650a89b2b9616191938e0e8004cc53704b20ba6eec03483f0ae97b"
+        },
+        {
+          "path": "tiles/0046.bin",
+          "size": 4264,
+          "sha256": "bb5cfcff216bb847fd7ffb1fb97c5955c8eb94b13d64180f1902152552c238c7"
+        },
+        {
+          "path": "tiles/0047.bin",
+          "size": 3868,
+          "sha256": "1d26a32ccaf687adb53a8a79a660054993a87cc8839458e0a58ffbb05be6ec45"
+        },
+        {
+          "path": "tiles/0048.bin",
+          "size": 3796,
+          "sha256": "9a0316ddebf8df192a663dd0881a976d5cecdf23b9a658a2caec205d16bea1e7"
+        },
+        {
+          "path": "tiles/0049.bin",
+          "size": 3976,
+          "sha256": "a850f1c8817f2b5fac5f13f97ca06c604c38ac550366299dce69287f8172a45e"
+        },
+        {
+          "path": "tiles/0050.bin",
+          "size": 4708,
+          "sha256": "b0e774e40c98aa968d4c1ffca09fb2bd76fe74556055d977b9373c834f659fda"
+        },
+        {
+          "path": "tiles/0051.bin",
+          "size": 5380,
+          "sha256": "9a1e5c0ba6a4b2b3313f338e79756d6ccabec01256cd15e1f81d20179ac3f840"
+        },
+        {
+          "path": "tiles/0052.bin",
+          "size": 4672,
+          "sha256": "895a4215a82613c7925d3aeb6f4b7c14fd5df1e89ce79b32b02730d301ef0bc2"
+        },
+        {
+          "path": "tiles/0053.bin",
+          "size": 6016,
+          "sha256": "80abb08d8c56c8ce2900703b0c572fb579f0bd21974e9f9d5d6d4a60069b21d0"
+        },
+        {
+          "path": "tiles/0054.bin",
+          "size": 5800,
+          "sha256": "5c0d29ed70282e0a09a22dd9a013d4e456a140fc345ec9341e26a6cd581cd100"
+        },
+        {
+          "path": "tiles/0055.bin",
+          "size": 7348,
+          "sha256": "9340850fe538ce4f7bac1a55a1882681df6c295186f17f194053ba81f43eae07"
+        },
+        {
+          "path": "tiles/0056.bin",
+          "size": 5644,
+          "sha256": "6a2e52f18fd14d2a2ff240b5a4c1e46e5f75edf38a3e1f59391f1309ef3b52ff"
+        },
+        {
+          "path": "tiles/0057.bin",
+          "size": 5416,
+          "sha256": "5f2649940e5b199378a5d66ac596389850141ceda610f4ebd72059ab2bc194a3"
+        },
+        {
+          "path": "tiles/0058.bin",
+          "size": 4528,
+          "sha256": "5c9e119d206d0e0cdc532b772fe0d4aa61f8d2842d33d66d144813b71d79e5fd"
+        },
+        {
+          "path": "tiles/0059.bin",
+          "size": 4276,
+          "sha256": "40a4e4c39db8d6b8aa5777ed73990577855359d10b4f1482bc70c5793737310a"
+        },
+        {
+          "path": "tiles/0060.bin",
+          "size": 5860,
+          "sha256": "012e6f3ccda13af06eab0f30ca22e1fff414e7dac654fe29442e674c53da3e3f"
+        },
+        {
+          "path": "tiles/0061.bin",
+          "size": 5872,
+          "sha256": "eab39162b00b17152e02773448e52e5b702f71e0fe9861a3ba2d43f01dba5bf1"
+        },
+        {
+          "path": "tiles/0062.bin",
+          "size": 3580,
+          "sha256": "559cedeb4af663b1f49a1ce723fc8890a310bd3b06c200611ac6cbc534baa428"
+        },
+        {
+          "path": "tiles/0063.bin",
+          "size": 3736,
+          "sha256": "4b838d656a885ab5ab5b2b09cd990a6876d051bf60f38217e636b9f0cd5dc186"
+        },
+        {
+          "path": "tiles/0064.bin",
+          "size": 5884,
+          "sha256": "3195c494ba3798864ab2a25596924630aeb834dcee605c240397ad6070598874"
+        },
+        {
+          "path": "tiles/0065.bin",
+          "size": 5164,
+          "sha256": "8b8db93da4288fa8d27c88b0680e3ed1a86dbfb882c44536c4e89f4f983466d9"
+        },
+        {
+          "path": "tiles/0066.bin",
+          "size": 4360,
+          "sha256": "3ad73f3089c6df5cc367126d879e90412cd18743a52444c0fc79411f7189c71a"
+        },
+        {
+          "path": "tiles/0067.bin",
+          "size": 3712,
+          "sha256": "8df27868d0824ecf3d49fcf3f80208e9cf741ad9b480204c364ec25a6ca467d9"
+        },
+        {
+          "path": "tiles/0068.bin",
+          "size": 4156,
+          "sha256": "d18abee782abd7f0e5b10f22c4fe77ee5b8fa55d18718b7c72390bda36ea63a3"
+        },
+        {
+          "path": "tiles/0069.bin",
+          "size": 4396,
+          "sha256": "4eb73af2725a47cdae34e0460ea812c2aaf5ea3289a8c04c1aadc4028d082455"
+        },
+        {
+          "path": "tiles/0070.bin",
+          "size": 3808,
+          "sha256": "86ad68ce6d4624924c07451c0b552ff6ffa9ff107eeb01d91316d8a3b2fc24ae"
+        },
+        {
+          "path": "tiles/0071.bin",
+          "size": 3904,
+          "sha256": "6cbb3d003df3022f3c97b75a4368fa38fd3e1648a8384f6164e22c786f7f780f"
+        },
+        {
+          "path": "tiles/0072.bin",
+          "size": 3748,
+          "sha256": "67aa9146e51f373851452e320e5fe1c027ac3e41cddb0be3ced252986add5a0c"
+        },
+        {
+          "path": "tiles/0073.bin",
+          "size": 3604,
+          "sha256": "e336d73219cc260f9e65ab68d2c1feb1dee39e0428ff98e755f4edcc44ec62dd"
+        },
+        {
+          "path": "tiles/0074.bin",
+          "size": 3568,
+          "sha256": "9e670f0785d93663aad05845953b514e88bf89cbc19874591fd792e346c0c13f"
+        },
+        {
+          "path": "tiles/0075.bin",
+          "size": 3988,
+          "sha256": "6e8340c45c3b964dafe0142c6f22c918571a0e83a784bed6518c7c9829231e4f"
+        },
+        {
+          "path": "tiles/0076.bin",
+          "size": 3976,
+          "sha256": "e60088da3ccc66a09479911f6116b08e07a88ba7e6a97f8acb63689145fff393"
+        },
+        {
+          "path": "tiles/0077.bin",
+          "size": 4000,
+          "sha256": "2dcee888c3fa9aa07cadeb1e7da2cdf5673abd17a61704d702b2fc5ee3daeb5e"
+        },
+        {
+          "path": "tiles/0078.bin",
+          "size": 3892,
+          "sha256": "7c2ea9803cd7d0bc179b0b6515e8516a4d1a688e841ddd96f129522613b2a7f9"
+        },
+        {
+          "path": "tiles/0079.bin",
+          "size": 4036,
+          "sha256": "fb5d03fdc61c2e58d340559a21495fdfcc83d429064697317ff893a0404d6ef9"
+        },
+        {
+          "path": "tiles/0080.bin",
+          "size": 4720,
+          "sha256": "bbd88e6c9391ece7db1ab7605aeb066b9d619a6ba4965ddb35dde20dec8ee0d3"
+        },
+        {
+          "path": "tiles/0081.bin",
+          "size": 5008,
+          "sha256": "32da452eee6b4e98a6190b4fcd854b0b27e54e24647b184dd122fb00cde2d6ca"
+        },
+        {
+          "path": "tiles/0082.bin",
+          "size": 3820,
+          "sha256": "2de61a50d78194dc81b02cc05d5f78ccebacb1ae12a33762ade6d6b073ae1ab7"
+        },
+        {
+          "path": "tiles/0083.bin",
+          "size": 4816,
+          "sha256": "0280f563ecd41b0c87f307f27c8906b6d6cbc78a4be086c97b10922b54a751bd"
+        },
+        {
+          "path": "tiles/0084.bin",
+          "size": 4504,
+          "sha256": "c70a2ceebd3b41f11df1c2febc331ce135e5394d7e34bf4d4be9e26f715b7b01"
+        },
+        {
+          "path": "tiles/0085.bin",
+          "size": 3700,
+          "sha256": "29b8bd591b6353f85c10ad05b69ba17ac52423481c74e7b5fdecdd59b4a1dc27"
+        },
+        {
+          "path": "tiles/0086.bin",
+          "size": 3412,
+          "sha256": "52e86e07ac043746dcd777b543f50e31d20a6a4747490ef61b855995090a0528"
+        },
+        {
+          "path": "tiles/0087.bin",
+          "size": 3604,
+          "sha256": "d90317ef1c7ffbaf805d3fea5929b2c78eee303acf3536aa3f6c0bdc7cc350c9"
+        },
+        {
+          "path": "tiles/0088.bin",
+          "size": 3196,
+          "sha256": "44d92a13e8bad3e69d103273b8fe056a248db665631362d3ce5f41de634b5845"
+        },
+        {
+          "path": "tiles/0089.bin",
+          "size": 5860,
+          "sha256": "06e0bed3d212cf24fd7338e20704b7a143fd0572e8375d69d1584e346cf4f4e3"
+        },
+        {
+          "path": "tiles/0090.bin",
+          "size": 4840,
+          "sha256": "b51ed67ffcb424ef9fba64ca84458b2699d4075057f3512df1b9a6b7797575ac"
+        },
+        {
+          "path": "tiles/0091.bin",
+          "size": 4780,
+          "sha256": "b5f9b9ab22a24c1c0b931bca7b831359494923427d8fe198884543792852bae6"
+        },
+        {
+          "path": "tiles/0092.bin",
+          "size": 4060,
+          "sha256": "73126b03840b5ebed7ac12c6fd0889f89aef3ad00519b07a39b59241fe464066"
+        },
+        {
+          "path": "tiles/0093.bin",
+          "size": 4012,
+          "sha256": "9cc7663649cf774a21ae62799b6992daa235624338a132dc80d4fbddf68c95d1"
+        },
+        {
+          "path": "tiles/0094.bin",
+          "size": 4936,
+          "sha256": "1d955a9bdb51bbabacc43a5755eb245df9dad029ca66754499e1caac68a561c9"
+        },
+        {
+          "path": "tiles/0095.bin",
+          "size": 5236,
+          "sha256": "80c5760628835170088f12cc0f59d0c2d83ef47d24934db15b9964a0aed2bcdf"
+        },
+        {
+          "path": "tiles/0096.bin",
+          "size": 3976,
+          "sha256": "1a94ab9f54c85486b56f9f6147be48423e8ee2f8700c8a1fe120aa3dbfc78265"
+        },
+        {
+          "path": "tiles/0097.bin",
+          "size": 3088,
+          "sha256": "291946c1a1551a4c36ed23ea7f602a38784ff515397bcffcb6bc9312decb4729"
+        },
+        {
+          "path": "tiles/0098.bin",
+          "size": 3412,
+          "sha256": "fabf58c91c3b6e646f2c61743a4f8177bd8073c76caeea9b79a60b63242efed7"
+        },
+        {
+          "path": "tiles/0099.bin",
+          "size": 3592,
+          "sha256": "d0612a2d6001f763f8216c7dab9799f05e6f62c7cada83323116d4aeefab72d2"
+        },
+        {
+          "path": "tiles/0100.bin",
+          "size": 3796,
+          "sha256": "4fb84dbad174f74581e6641ac942300e4db5e3b649a7d2d2846ce773e00b099f"
+        },
+        {
+          "path": "tiles/0101.bin",
+          "size": 4552,
+          "sha256": "ca1045d1b569bb0636de483f5f4b89d5b62c0e4fc8b77cac3b587cd4e7fc5a26"
+        },
+        {
+          "path": "tiles/0102.bin",
+          "size": 3868,
+          "sha256": "c5e54cee7cc54c81bda55e5bca5864cdf05ff083ae853979877fe14a0c1cadfb"
+        },
+        {
+          "path": "tiles/0103.bin",
+          "size": 4924,
+          "sha256": "bab9cea79ee3a5ebdf317817c8d5670bfccb6754cb5173f0423c7a259dceed47"
+        },
+        {
+          "path": "tiles/0104.bin",
+          "size": 3184,
+          "sha256": "2dd8a90bfd1bc7dba0810421d255675a6a35cda6d2eb1f37481ae4f07d434615"
+        },
+        {
+          "path": "tiles/0105.bin",
+          "size": 3628,
+          "sha256": "c553a281a6e3d59727d9c68cee4c133804b1c11c782d2b500c6c5d262977e833"
+        },
+        {
+          "path": "tiles/0106.bin",
+          "size": 3352,
+          "sha256": "72e3be84394a1f0f22815e3de0ec00e81c53b29ec78c7fba6657465e8ec37f9f"
+        },
+        {
+          "path": "tiles/0107.bin",
+          "size": 4432,
+          "sha256": "0024a4423a1c5c2f187aeca81620eb5f32c1871952c8b2ab4641f828e0ca5590"
+        },
+        {
+          "path": "tiles/0108.bin",
+          "size": 4408,
+          "sha256": "4cdad376570de251918a768e4df0067bba75be798b031b5f9858b0716225821a"
+        },
+        {
+          "path": "tiles/0109.bin",
+          "size": 5524,
+          "sha256": "2a31ce414c400fef7120600da809316d09052892cf1fdbdf5c4e79dbb6a96646"
+        },
+        {
+          "path": "tiles/0110.bin",
+          "size": 4516,
+          "sha256": "388793f6274a41aedb4fb34aa72a5794e763826f509841f1425fd5008dc39df7"
+        },
+        {
+          "path": "tiles/0111.bin",
+          "size": 5500,
+          "sha256": "2e1910470457e20782cd05a6586226e5e9ad1c1bb74e0c2994f258519dc50b29"
+        },
+        {
+          "path": "tiles/0112.bin",
+          "size": 5668,
+          "sha256": "b7e811bee7c687cc22e92fc315573fa60e8d0f2c89ea300c435142cdc81cd524"
+        },
+        {
+          "path": "tiles/0113.bin",
+          "size": 3700,
+          "sha256": "d95e34adb2502dbb0950e6e2f1a3a0ad36d3ef3ec146fc3598fb58fdb0701d12"
+        },
+        {
+          "path": "tiles/0114.bin",
+          "size": 4768,
+          "sha256": "f3f8c4969d45402ae53e498cb25c267f03f300a79a1bb1bea9434baf2637c93c"
+        },
+        {
+          "path": "tiles/0115.bin",
+          "size": 3364,
+          "sha256": "f0baa671dde5584e37e342f1d6c0de23ec5742076bd3df4225242c594e8f5322"
+        },
+        {
+          "path": "tiles/0116.bin",
+          "size": 3040,
+          "sha256": "b4b054972b222a3fb36ed701f26e450d77399a340a3a949e1f4bcb25d5c62adf"
+        },
+        {
+          "path": "tiles/0117.bin",
+          "size": 3724,
+          "sha256": "a699f44a07d39914d2d7842b9843061b29c5c7e84f087c31a16cfab60867cb1a"
+        },
+        {
+          "path": "tiles/0118.bin",
+          "size": 3868,
+          "sha256": "a3fe2b19b764ee406db093d307c074ca90e422b1a8e1e777b16d0245fa1097b9"
+        },
+        {
+          "path": "tiles/0119.bin",
+          "size": 4672,
+          "sha256": "ce2e40bec9a2f93cd210e35fe73fbbc284f9d3b3d7b72719f2b329eb516e1289"
+        },
+        {
+          "path": "tiles/0120.bin",
+          "size": 4012,
+          "sha256": "4a0092ab8936b5010dc612f2ce97e1c64feec461f86b967a5e36f67e2b1ebd27"
+        },
+        {
+          "path": "tiles/0121.bin",
+          "size": 3652,
+          "sha256": "906a335d49422b3f4728bd548cc53dc79a08fce25e391c0c57843f959a85a149"
+        },
+        {
+          "path": "tiles/0122.bin",
+          "size": 4648,
+          "sha256": "471f3bb45f32b5a48de8ab2f9ce8156660dc3bc4a80c573069df4a80f0635afb"
+        },
+        {
+          "path": "tiles/0123.bin",
+          "size": 4012,
+          "sha256": "59293508abef7b1f066642fa7005952764ef58ba365234b7c2037b837e005684"
+        },
+        {
+          "path": "tiles/0124.bin",
+          "size": 4180,
+          "sha256": "fc40a2f2376a4aa0e4b5829148d22a2692295432c5b366cc33f403da4e003ae7"
+        },
+        {
+          "path": "tiles/0125.bin",
+          "size": 4936,
+          "sha256": "d56f5591e4dd83d068438f6368f287978142c9eb49c6a53a8d1054a0543a87eb"
+        },
+        {
+          "path": "tiles/0126.bin",
+          "size": 4768,
+          "sha256": "8e6b474e620ba0c247548168250fd125eac8448de99d3a9062731e0d0f2dcaa6"
+        },
+        {
+          "path": "tiles/0127.bin",
+          "size": 4948,
+          "sha256": "caa12c1fd53fc42de36ebf70797cd5d5d53e113d1343887b68a25927a073ef20"
+        },
+        {
+          "path": "tiles/0128.bin",
+          "size": 4936,
+          "sha256": "14d5950b3e150062bc2f38ca2726924d451b224ca3c27cc5502af0027b0a078d"
+        },
+        {
+          "path": "tiles/0129.bin",
+          "size": 5320,
+          "sha256": "40a37371696b6d9a8c6442a4a35f66e4df19e38808a01676a063a4429d4f01cd"
+        },
+        {
+          "path": "tiles/0130.bin",
+          "size": 5464,
+          "sha256": "8eaf5b6167a58451b61ed98b16beaa556117b8bf47cb620094adf45222abc246"
+        },
+        {
+          "path": "tiles/0131.bin",
+          "size": 5296,
+          "sha256": "4be3a9aacb31aaed1a7427eb184b7eed5c70e5129e1eaf53674345a96059f490"
+        },
+        {
+          "path": "tiles/0132.bin",
+          "size": 5236,
+          "sha256": "295391e089cdb64ff3a75385535cd625bd750786b8633160511c6c7b4abf03b9"
+        },
+        {
+          "path": "tiles/0133.bin",
+          "size": 5008,
+          "sha256": "01d80ceefe24b32efd6be9b1d026e7380e5de2af7c3128d2f5d262280839ca24"
+        },
+        {
+          "path": "tiles/0134.bin",
+          "size": 5092,
+          "sha256": "d6d357d3f36f2260ee2c4ec5db70d3d69ed21a292989c29cfb444765f8f0131d"
+        },
+        {
+          "path": "tiles/0135.bin",
+          "size": 4756,
+          "sha256": "c54b85734fa7eaf7c51381d495c3f62d64e48f66d610ffa8c56ce4e5caf45859"
+        },
+        {
+          "path": "tiles/0136.bin",
+          "size": 5500,
+          "sha256": "c8f5189e4c86dfa011205e7d6279748c8e0935dd7a37cc2ea4a27e6e98ae71f4"
+        },
+        {
+          "path": "tiles/0137.bin",
+          "size": 5056,
+          "sha256": "9da012b14e4b246a50d3cde185a2a783adbaf4902c6c9186df138474c52eb61b"
+        },
+        {
+          "path": "tiles/0138.bin",
+          "size": 6136,
+          "sha256": "2beaf83b0b6a2c3c01e633aedc69545084dd88bf21eebb647450d12b619513d8"
+        },
+        {
+          "path": "tiles/0139.bin",
+          "size": 5968,
+          "sha256": "2cd82a1bced23206e74cbcf19e24120968d495506041d8b528aa63eab21921aa"
+        },
+        {
+          "path": "tiles/0140.bin",
+          "size": 4804,
+          "sha256": "40ac1b86fe8edb5b05a2c13324f450d1592eef7fef36c52df8c37b5b58eb68e2"
+        },
+        {
+          "path": "tiles/0141.bin",
+          "size": 3904,
+          "sha256": "898b56ab724bdd26578b0c9f162b8cb97b7e2d15583b72fe3677b6b7d3f2d7ef"
+        },
+        {
+          "path": "tiles/0142.bin",
+          "size": 5296,
+          "sha256": "88513c12eadfcfe3b0e5b23f30c8841ee9b627e8be4dd381e849d82d97412d0e"
+        },
+        {
+          "path": "tiles/0143.bin",
+          "size": 4780,
+          "sha256": "f7cafb948521969be152d641b0aa635dfc5c54dce2141d8acbb9622a05df793c"
+        },
+        {
+          "path": "tiles/0144.bin",
+          "size": 5152,
+          "sha256": "6f790664fa05250e0a2a7c50a1e2b2cdeba4c787d19d497a46ef9fd563918546"
+        },
+        {
+          "path": "tiles/0145.bin",
+          "size": 7288,
+          "sha256": "8918eadc1807f81505cf263dba37636908e551248b10c89e95a1f4173c5826d0"
+        },
+        {
+          "path": "tiles/0146.bin",
+          "size": 5764,
+          "sha256": "f69d827f5376bba56ab37d3aecd79fcd458e6dd51084787a94675b49bdff8cdd"
+        },
+        {
+          "path": "tiles/0147.bin",
+          "size": 7168,
+          "sha256": "598620b03178bd805b38cf93ffc184d342680bd9277707420a42817c0c150bcd"
+        },
+        {
+          "path": "tiles/0148.bin",
+          "size": 7588,
+          "sha256": "ecf9871cc9cffd8f0b3f76d36db7bb96008f6cd3eb447aef486b0852f268f35c"
+        },
+        {
+          "path": "tiles/0149.bin",
+          "size": 6100,
+          "sha256": "13d787c6ac1e7fe6b0f06617a10d62aa9b362ea963480ec461940900624a5ac2"
+        },
+        {
+          "path": "tiles/0150.bin",
+          "size": 6172,
+          "sha256": "7f1f1f107369b5ed97c3ef9a4c690b0a4656cceadc35b08fd60f284684bc85e5"
+        },
+        {
+          "path": "tiles/0151.bin",
+          "size": 4264,
+          "sha256": "3856e9c116e17fde70b7fabe2a25de7c0fb4ac3c9d1f0798db4e9cd0a4b6e71f"
+        },
+        {
+          "path": "tiles/0152.bin",
+          "size": 5980,
+          "sha256": "7673ab761356750b18e4a8dc7c436f9359c10d8f154e9169fb75f734f48f16fc"
+        },
+        {
+          "path": "tiles/0153.bin",
+          "size": 5812,
+          "sha256": "a185b6a7f957810d448f799f4988c98d5c61d74cc6f85088a26620a10dea20c1"
+        },
+        {
+          "path": "tiles/0154.bin",
+          "size": 5404,
+          "sha256": "8a675a723038779f98d87544f77cc3ee85b3ad9e768c80427487157c66bf1b83"
+        },
+        {
+          "path": "tiles/0155.bin",
+          "size": 6196,
+          "sha256": "b1929e90062b29f253460275ffaef349cba6fb70fb66fa72ad80aa58745e009b"
+        },
+        {
+          "path": "tiles/0156.bin",
+          "size": 4780,
+          "sha256": "b7e7623b3806f4771fbb68197e4f4593d6a52fc4e89b3a63864612076a3207eb"
+        },
+        {
+          "path": "tiles/0157.bin",
+          "size": 3184,
+          "sha256": "234777c31e3fffdd11fcddbd2f63ee8d79f562620b896483d0c41192b083a771"
+        },
+        {
+          "path": "tiles/0158.bin",
+          "size": 3748,
+          "sha256": "1e5123eea28edaddb27d0e55ced9d22b22f967dfb85763f9e7f2889bf02af2a1"
+        },
+        {
+          "path": "tiles/0159.bin",
+          "size": 3016,
+          "sha256": "e1a83b5c8769245242922212455ff3d683068b17eeb5b954d7001b401a6ee90a"
+        },
+        {
+          "path": "tiles/0160.bin",
+          "size": 5452,
+          "sha256": "0a0c0e9b00c1f9ef18a0c2605674ba9f6a8c6c820f5cae605504d81370b1f0d2"
+        },
+        {
+          "path": "tiles/0161.bin",
+          "size": 6448,
+          "sha256": "16b868a37d200fcc88baf84e3fd20fdfc4871ea8bca3eab7ca1ea5351eeb263d"
+        },
+        {
+          "path": "tiles/0162.bin",
+          "size": 8968,
+          "sha256": "ab2ac73eb93009be8de46a1cef11974c7d4d7f6e4bc327a96628d43e885a7093"
+        },
+        {
+          "path": "tiles/0163.bin",
+          "size": 7192,
+          "sha256": "b471eaa05773720f4f353bcd4e7cfa01c90b8f940ee9b31390977abe79191632"
+        },
+        {
+          "path": "tiles/0164.bin",
+          "size": 7348,
+          "sha256": "2c209fa59d82c883c0f76dc3b0fe22e36c903c45426e47162522a605e2e255fa"
+        },
+        {
+          "path": "tiles/0165.bin",
+          "size": 6796,
+          "sha256": "8b218ab8d87d8c71fee65c4d804a5de8557b2e1402447690dfe795cd9b847759"
+        },
+        {
+          "path": "tiles/0166.bin",
+          "size": 7024,
+          "sha256": "b2d9bde02f720ef02b1d1aaae13e75a2371c934d0a2633aa9382a773231e0bf4"
+        },
+        {
+          "path": "tiles/0167.bin",
+          "size": 5632,
+          "sha256": "24089b0d9e5f05e268f68e263f870c0cc79a468e9cbf19afe5c58684f0e160bf"
+        },
+        {
+          "path": "tiles/0168.bin",
+          "size": 8824,
+          "sha256": "3500dffc103eb416075394231139f6c4d9885574c37598611b0996724e3ada1d"
+        },
+        {
+          "path": "tiles/0169.bin",
+          "size": 7264,
+          "sha256": "da6557a3fea68a83c97df680a6f5fce6dc27b11c57bf9f9a877f62f78bfab535"
+        },
+        {
+          "path": "tiles/0170.bin",
+          "size": 6244,
+          "sha256": "9f7656c8262d4e4c127c6af22f05542ffecd92cdad6155b1afdeea9f08ed571e"
+        },
+        {
+          "path": "tiles/0171.bin",
+          "size": 4552,
+          "sha256": "5a8df9eb6307758be409fd1594a10ad2a0974541def2d02cedd8036ef4e71998"
+        },
+        {
+          "path": "tiles/0172.bin",
+          "size": 5392,
+          "sha256": "980e657f4930f7e7b8fb08f5394872fe9e6f28c874b7a3967ed7a791ebdfc6f7"
+        },
+        {
+          "path": "tiles/0173.bin",
+          "size": 4984,
+          "sha256": "a95eb500bc5864e09077b4bbedc1efd13ccc55286162917c8fd56159112bcc51"
+        },
+        {
+          "path": "tiles/0174.bin",
+          "size": 3520,
+          "sha256": "6f5618b2b449235ee858f456a71831ded5680b5b6bc5c082134a342ca1146933"
+        },
+        {
+          "path": "tiles/0175.bin",
+          "size": 4324,
+          "sha256": "cbe83bce17ed91f9700018a43c495f096f09d99c5eafc6574220f9518150343e"
+        },
+        {
+          "path": "tiles/0176.bin",
+          "size": 5104,
+          "sha256": "18adacef92fa8412cdef80b5918341f0dffb654ba016ee8ff285a1659c7dd711"
+        },
+        {
+          "path": "tiles/0177.bin",
+          "size": 5824,
+          "sha256": "354d1fbc5bcd14c77a67e44510b3c62e5075c1cf28f02f128b5de6f3338e9f8f"
+        },
+        {
+          "path": "tiles/0178.bin",
+          "size": 5776,
+          "sha256": "845dc012b2dac15b698ba707f543030b29dfe30260efc20aa74fac29b37f5f5c"
+        },
+        {
+          "path": "tiles/0179.bin",
+          "size": 6076,
+          "sha256": "429f7025f9bb2c8b623971e89b426494b504834add7047f589ba82a82b404845"
+        },
+        {
+          "path": "tiles/0180.bin",
+          "size": 5992,
+          "sha256": "ea8b9b8e26edf6f87a7bb07c6c8459d37ed47022bf22e477c7486adb64d18961"
+        },
+        {
+          "path": "tiles/0181.bin",
+          "size": 6664,
+          "sha256": "3d301407fed0de9288f9bc8631f5e0305cf842addd93f04d48ea4f7ccb2893ca"
+        },
+        {
+          "path": "tiles/0182.bin",
+          "size": 6436,
+          "sha256": "f00ef1053c8f51e66cc055bba95922710cd547006d0d9931641ee9fefd75310b"
+        },
+        {
+          "path": "tiles/0183.bin",
+          "size": 5068,
+          "sha256": "b85bb61341bf2c65344a7357d6fbba76861f72773f42538af45cf7bd87b3ee71"
+        },
+        {
+          "path": "tiles/0184.bin",
+          "size": 6364,
+          "sha256": "f85872d9d9f7c280c530a08a96142ba952943766cad83e7e871a1511a17762ec"
+        },
+        {
+          "path": "tiles/0185.bin",
+          "size": 6340,
+          "sha256": "ac4d0ed8e90550b4ba85075eb88aef087f9c45997bad3b9c6b36ef5fddd9d102"
+        },
+        {
+          "path": "tiles/0186.bin",
+          "size": 6700,
+          "sha256": "4095eb311ca62caccadc5668331ceace3dda7e97d9295704354b17990965924d"
+        },
+        {
+          "path": "tiles/0187.bin",
+          "size": 5260,
+          "sha256": "f5f8874c8e0c605c0266022b0b721645c40667a67a324bff41460d4a1de06f08"
+        },
+        {
+          "path": "tiles/0188.bin",
+          "size": 4816,
+          "sha256": "bcd064d731ffbacde8ca3666d45faf5843651c948e62d9adc705a5fbd31b761c"
+        },
+        {
+          "path": "tiles/0189.bin",
+          "size": 3508,
+          "sha256": "1d1db29e1c76a3c516a553f5a5910d21b70c10e6909936ff30b8dba9b7f89f09"
+        },
+        {
+          "path": "tiles/0190.bin",
+          "size": 3832,
+          "sha256": "4b34e68ad730b49eec8e2c235a13a20f60b8a1f542560671a2726c562a0010fe"
+        },
+        {
+          "path": "tiles/0191.bin",
+          "size": 3496,
+          "sha256": "8c0530280b6f35a798289034aa31620eff007488f2675c8de549b048e49345ed"
+        }
+      ],
+      "totalSize": 943776
+    }
+  ]
+}
