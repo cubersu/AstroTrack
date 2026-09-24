@@ -1,0 +1,68 @@
+# Manually (re)build astronomical data packs on a GitHub-hosted runner, which
+# has the network access that the upstream archives require. The resulting
+# pack directories are uploaded as a workflow artifact for review; nothing is
+# committed or published automatically.
+name: Build data packs
+
+on:
+  workflow_dispatch:
+    inputs:
+      pack:
+        description: Which pack to build
+        type: choice
+        options: [core, gaia, light-pollution]
+        default: core
+      gaia_gmin:
+        description: 'Gaia: faintest excluded G (lower bound)'
+        default: '8'
+      gaia_gmax:
+        description: 'Gaia: limiting G magnitude'
+        default: '11'
+      gaia_order:
+        description: 'Gaia: HEALPix tiling order'
+        default: '4'
+      lp_input_url:
+        description: 'Light pollution: URL of a VIIRS radiance GeoTIFF (EPSG:4326, nW/cm²/sr)'
+        default: ''
+      lp_region:
+        description: 'Light pollution: name:west,south,east,north'
+        default: 'turkey:25,35,45,43'
+      lp_res:
+        description: 'Light pollution: grid resolution in degrees'
+        default: '0.02'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Core catalogue and stars (OpenNGC, HYG)
+        if: inputs.pack == 'core'
+        run: |
+          npm run data:fetch -- --force
+          npm run data:build
+      - name: Gaia DR3 deep-star pack
+        if: inputs.pack == 'gaia'
+        run: npx tsx scripts/stars/build-gaia-pack.ts --gmin "${{ inputs.gaia_gmin }}" --gmax "${{ inputs.gaia_gmax }}" --order "${{ inputs.gaia_order }}"
+      - name: Light-pollution pack
+        if: inputs.pack == 'light-pollution'
+        env:
+          LP_URL: ${{ inputs.lp_input_url }}
+        run: |
+          test -n "$LP_URL" || { echo "lp_input_url is required"; exit 1; }
+          curl -fL "$LP_URL" -o viirs.tif
+          npx tsx scripts/lightpollution/build-lp-pack.ts --input viirs.tif --region "${{ inputs.lp_region }}" --res "${{ inputs.lp_res }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: data-packs-${{ inputs.pack }}
+          path: public/data
+          retention-days: 30
