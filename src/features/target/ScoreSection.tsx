@@ -11,7 +11,7 @@ import {
 import { SessionWeatherView } from '../common/WeatherViews';
 import { useApp } from '../../app/AppState';
 
-export function ScoreSection({ ev }: { ev: EvaluateResponse }) {
+export function ScoreSection({ ev, manual = false }: { ev: EvaluateResponse; manual?: boolean }) {
   const { t, td, fmtNumber } = useI18n();
   const app = useApp();
   const e = ev.evaluation;
@@ -23,6 +23,15 @@ export function ScoreSection({ ev }: { ev: EvaluateResponse }) {
       <p className="tiny muted">
         {t('target.scoreFor', { rig: app.rig?.name ?? '—', location: app.location?.name ?? '—' })}
       </p>
+      {manual && e.optics && (
+        <p className="small" style={{ color: 'var(--accent)' }}>
+          {t('target.manualOptics', {
+            name: app.equipment.optics.find((o) => o.id === e.optics!.opticsId)?.name ?? '—',
+            focal: Math.round(e.optics.focalLengthMm),
+            f: e.optics.fNumber ? `f/${fmtNumber(e.optics.fNumber, 1)}` : '—',
+          })}
+        </p>
+      )}
       <div className="row" style={{ gap: '1.25rem', alignItems: 'center' }}>
         <div className="stack" style={{ alignItems: 'center' }}>
           <ScoreRing score={e.score} cls={e.scoreClass} label={t('tonight.astroScore')} />

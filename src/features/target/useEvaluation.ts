@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useApp } from '../../app/AppState';
 import { catalogApi } from '../../app/catalogClient';
 import type { CalendarDate } from '../../astro/time';
 import type { DetailResponse, EvaluateResponse } from '../../workers/serviceTypes';
 import { availableHoursFromSettings, geo } from '../common/nightHooks';
+import type { OpticsSelection } from './opticsSelection';
+import { applyOpticsSelection, selectionKey } from './opticsSelection';
 
 export function useTargetDetail(id: string) {
   const app = useApp();
@@ -21,22 +23,48 @@ export function useTargetDetail(id: string) {
   return detail;
 }
 
-export function useEvaluation(id: string, date: CalendarDate | null) {
+/** Delay applied to optics changes (e.g. dragging the zoom slider) before re-evaluating. */
+const SELECTION_DEBOUNCE_MS = 250;
+
+export function useEvaluation(
+  id: string,
+  date: CalendarDate | null,
+  selection: OpticsSelection | null = null,
+) {
   const app = useApp();
   const [ev, setEv] = useState<EvaluateResponse | null>(null);
+  /** The optics selection the current `ev` was computed for. */
+  const [evSelection, setEvSelection] = useState<OpticsSelection | null>(null);
   const [error, setError] = useState<string | null>(null);
+
+  const key = selectionKey(selection);
+  const [debounced, setDebounced] = useState(selection);
   useEffect(() => {
-    if (!app.catalogue.ready || !app.location || !app.rigInput || !date) {
+    const h = setTimeout(() => setDebounced(selection), SELECTION_DEBOUNCE_MS);
+    return () => clearTimeout(h);
+    // `key` captures the selection's content.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [key]);
+  const debouncedKey = selectionKey(debounced);
+  const rig = useMemo(
+    () => (app.rigInput ? applyOpticsSelection(app.rigInput, debounced) : null),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [app.rigInput, debouncedKey],
+  );
+
+  useEffect(() => {
+    if (!app.catalogue.ready || !app.location || !rig || !date) {
       setEv(null);
       return;
     }
     let alive = true;
+    const sel = debounced;
     catalogApi()
       .evaluate({
         id,
         location: geo(app.location),
         date,
-        rig: app.rigInput,
+        rig,
         sky: app.sky,
         settings: app.settings.scoring,
         exposureMode: app.settings.exposureMode,
@@ -46,7 +74,7 @@ export function useEvaluation(id: string, date: CalendarDate | null) {
         weatherEnabled: app.settings.weatherEnabled === true,
       })
       .then(
-        (r) => alive && (setEv(r), setError(null)),
+        (r) => alive && (setEv(r), setEvSelection(sel), setError(null)),
         (e: Error) => alive && setError(e.message),
       );
     return () => {
@@ -61,10 +89,10 @@ export function useEvaluation(id: string, date: CalendarDate | null) {
     date?.day,
     app.catalogue.ready,
     app.location,
-    app.rigInput,
+    rig,
     app.sky,
     app.settings,
     app.weather.input,
   ]);
-  return { ev, error };
+  return { ev, error, evSelection };
 }

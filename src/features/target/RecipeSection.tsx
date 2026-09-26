@@ -22,6 +22,9 @@ import { useToast } from '../../ui/toast';
 import type { EvaluateResponse } from '../../workers/serviceTypes';
 import { ConfidenceBadge } from '../common/ScoreViews';
 import type { DsoSummary } from '../../catalog/types';
+import type { OpticsChoice } from '../../astro/scoring';
+import { OpticsPicker } from './OpticsPicker';
+import type { OpticsSelection } from './opticsSelection';
 
 export function lightsFor(hours: number, subS: number): number {
   return subS > 0 ? Math.ceil((hours * 3600) / subS) : 0;
@@ -162,7 +165,19 @@ function CalibrationWorkflow({ ev }: { ev: EvaluateResponse }) {
   );
 }
 
-export function RecipeSection({ ev, summary }: { ev: EvaluateResponse; summary: DsoSummary }) {
+export function RecipeSection({
+  ev,
+  summary,
+  selection,
+  onSelect,
+  auto,
+}: {
+  ev: EvaluateResponse;
+  summary: DsoSummary;
+  selection: OpticsSelection | null;
+  onSelect: (s: OpticsSelection | null) => void;
+  auto: OpticsChoice | null;
+}) {
   const { t, fmtNumber, fmtDuration, fmtTime, td } = useI18n();
   const app = useApp();
   const rig = app.rigInput!;
@@ -186,6 +201,7 @@ export function RecipeSection({ ev, summary }: { ev: EvaluateResponse; summary: 
         {t('target.recipe')}{' '}
         <ConfidenceBadge level={e.confidence.level} factors={e.confidence.factors} />
       </h2>
+      <OpticsPicker selection={selection} onChange={onSelect} current={o} auto={auto} />
       <dl className="kv">
         <dt>{t('recipe.optics')}</dt>
         <dd>{opticsName}</dd>
@@ -243,6 +259,15 @@ export function RecipeSection({ ev, summary }: { ev: EvaluateResponse; summary: 
       {fixed && npf && o && (
         <div className="card tight" style={{ marginTop: '0.75rem' }}>
           <h3>{t('recipe.fixedTitle')}</h3>
+          <p className="small">
+            <strong>
+              {t('recipe.fixedFor', {
+                name: opticsName,
+                focal: Math.round(o.focalLengthMm),
+                f: `f/${fmtNumber(o.fNumber!, 1)}`,
+              })}
+            </strong>
+          </p>
           <p className="tiny faint">{t('recipe.fixedHint')}</p>
           <table className="data">
             <tbody>

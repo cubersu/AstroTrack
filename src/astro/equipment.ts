@@ -168,6 +168,54 @@ const STANDARD_F = [
   1, 1.1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.5, 2.8, 3.2, 3.5, 4, 4.5, 5, 5.6, 6.3, 7.1, 8, 9, 10, 11,
 ];
 
+/**
+ * Standard f-stops a camera lens can be set to at a native focal length,
+ * from its maximum aperture down to f/11 (effective values, multiplier applied).
+ * Telescopes have a fixed focal ratio and return a single value.
+ */
+export function apertureStops(o: OpticsSpec, nativeFocalMm: number): number[] {
+  const nMax = maxApertureFNumber(o, nativeFocalMm);
+  if (nMax === null) return [];
+  const m = opticsMultiplier(o);
+  if (o.kind === 'telescope') return [nMax * m];
+  const stops = STANDARD_F.filter((s) => s >= nMax - 1e-9);
+  if (!stops.length || stops[0] - nMax > 1e-9) stops.unshift(Math.round(nMax * 10) / 10);
+  return stops.map((s) => s * m);
+}
+
+/**
+ * Pin an optic to a user-chosen configuration so the engine evaluates exactly
+ * that: a zoom becomes a prime at `effectiveFocalMm` (clamped to its range;
+ * null keeps the zoom range and lets the engine frame within it), and
+ * `effectiveFNumber` (clamped to the maximum aperture; null = automatic
+ * working aperture) becomes the preferred aperture. Values are effective,
+ * i.e. with any reducer/Barlow multiplier applied.
+ */
+export function pinOptics(
+  o: OpticsSpec,
+  effectiveFocalMm: number | null,
+  effectiveFNumber: number | null,
+): OpticsSpec {
+  const m = opticsMultiplier(o);
+  let spec: OpticsSpec = { ...o };
+  if (effectiveFocalMm !== null && Number.isFinite(effectiveFocalMm)) {
+    const maxNative = isZoom(o) ? o.focalLengthMaxMm! : o.focalLengthMm;
+    const native = Math.min(Math.max(effectiveFocalMm / m, o.focalLengthMm), maxNative);
+    const nMax = maxApertureFNumber(o, native);
+    spec = {
+      ...spec,
+      focalLengthMm: native,
+      focalLengthMaxMm: null,
+      fNumber: nMax ?? o.fNumber ?? null,
+      fNumberAtMax: null,
+    };
+  }
+  if (effectiveFNumber !== null && Number.isFinite(effectiveFNumber) && o.kind !== 'telescope') {
+    spec.preferredFNumber = effectiveFNumber / m;
+  }
+  return spec;
+}
+
 export function nearestStandardFNumber(n: number): number {
   let best = STANDARD_F[0];
   for (const s of STANDARD_F)

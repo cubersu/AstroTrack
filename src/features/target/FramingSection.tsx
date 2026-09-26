@@ -2,34 +2,40 @@ import { useEffect, useMemo, useState } from 'react';
 import { useApp } from '../../app/AppState';
 import { cameraPixelPitchUm, isZoom, opticsMultiplier } from '../../astro/equipment';
 import { evaluateFraming } from '../../astro/framing';
+import type { OpticsChoice } from '../../astro/scoring';
 import type { DsoSummary } from '../../catalog/types';
 import { useI18n } from '../../i18n/i18n';
 import type { TKey } from '../../i18n/i18n';
 import type { EvaluateResponse } from '../../workers/serviceTypes';
 import { FramingSimulator } from './FramingSimulator';
+import { OpticsPicker } from './OpticsPicker';
+import type { OpticsSelection } from './opticsSelection';
 
 export function FramingSection({
   ev,
   summary,
+  selection,
+  onSelect,
+  auto,
 }: {
   ev: EvaluateResponse | null;
   summary: DsoSummary;
+  selection: OpticsSelection | null;
+  onSelect: (s: OpticsSelection | null) => void;
+  auto: OpticsChoice | null;
 }) {
   const { t, fmtNumber } = useI18n();
   const app = useApp();
   const rig = app.rigInput;
   const rec = ev?.evaluation.optics ?? null;
-  const [opticsId, setOpticsId] = useState<string | null>(rec?.opticsId ?? null);
-  const [focal, setFocal] = useState<number | null>(rec?.focalLengthMm ?? null);
   const [rotation, setRotation] = useState<number>(rec?.framing.rotationDeg ?? 90);
   useEffect(() => {
-    if (rec) {
-      setOpticsId(rec.opticsId);
-      setFocal(rec.focalLengthMm);
-      setRotation(rec.framing.rotationDeg ?? 90);
-    }
+    if (rec) setRotation(rec.framing.rotationDeg ?? 90);
   }, [rec?.opticsId, rec?.focalLengthMm, rec?.framing.rotationDeg]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  // The framing preview follows the selection immediately; the evaluation
+  // (scores, recipe) catches up after a short debounce.
+  const opticsId = selection?.opticsId ?? rec?.opticsId ?? null;
   const optics = rig?.optics.find((o) => o.id === opticsId) ?? rig?.optics[0] ?? null;
   const range = useMemo(() => {
     if (!optics) return null;
@@ -39,6 +45,9 @@ export function FramingSection({
       max: (isZoom(optics.spec) ? optics.spec.focalLengthMaxMm! : optics.spec.focalLengthMm) * m,
     };
   }, [optics]);
+  const focal =
+    selection?.focalLengthMm ??
+    (rec && optics && rec.opticsId === optics.id ? rec.focalLengthMm : null);
   const fl =
     focal !== null && range
       ? Math.min(Math.max(focal, range.min), range.max)
@@ -70,62 +79,32 @@ export function FramingSection({
       </section>
     );
 
-  const orientationText = rec
-    ? rec.framing.orientation === 'angled'
-      ? t('framing.orientation.angled', { pa: fmtNumber(rec.framing.rotationDeg ?? 0, 0) })
-      : t(`framing.orientation.${rec.framing.orientation}` as TKey)
+  const recommended = auto ?? (selection ? null : rec);
+  const orientationText = recommended
+    ? recommended.framing.orientation === 'angled'
+      ? t('framing.orientation.angled', {
+          pa: fmtNumber(recommended.framing.rotationDeg ?? 0, 0),
+        })
+      : t(`framing.orientation.${recommended.framing.orientation}` as TKey)
     : null;
 
   return (
     <section className="card" aria-labelledby="framing-h">
       <h2 id="framing-h">{t('target.framing')}</h2>
-      {rec && (
+      {recommended && (
         <p className="small">
-          <strong>{t('framing.recommendedFocal')}:</strong> {Math.round(rec.focalLengthMm)} mm (
-          {app.equipment.optics.find((o) => o.id === rec.opticsId)?.name ?? '—'}) ·{' '}
+          <strong>{t('framing.recommendedFocal')}:</strong> {Math.round(recommended.focalLengthMm)}{' '}
+          mm ({app.equipment.optics.find((o) => o.id === recommended.opticsId)?.name ?? '—'}) ·{' '}
           {t(`controls.${app.settings.scoring.framingStyle}` as TKey)}
           {orientationText && <> · {orientationText}</>}
         </p>
       )}
-      {rec?.framing.mosaicSuggested && (
+      {recommended?.framing.mosaicSuggested && (
         <p style={{ color: 'var(--warn)' }}>{t('framing.mosaic')}</p>
       )}
       <div className="grid two">
         <div className="stack">
-          <label className="field">
-            <span className="label">{t('framing.optics')}</span>
-            <select
-              value={optics?.id ?? ''}
-              onChange={(e) => {
-                setOpticsId(e.target.value);
-                setFocal(null);
-              }}
-            >
-              {rig.optics.map((o) => (
-                <option key={o.id} value={o.id}>
-                  {app.equipment.optics.find((x) => x.id === o.id)?.name ?? o.id}
-                </option>
-              ))}
-            </select>
-          </label>
-          {range && range.max > range.min && (
-            <label className="field">
-              <span className="label">
-                {t('framing.focal')}: {fl !== null ? Math.round(fl) : '—'} mm
-              </span>
-              <input
-                type="range"
-                min={range.min}
-                max={range.max}
-                step={1}
-                value={fl ?? range.min}
-                onChange={(e) => setFocal(Number(e.target.value))}
-              />
-              <span className="hint">
-                {t('framing.zoomRange', { min: Math.round(range.min), max: Math.round(range.max) })}
-              </span>
-            </label>
-          )}
+          <OpticsPicker selection={selection} onChange={onSelect} current={rec} auto={auto} hint />
           <label className="field">
             <span className="label">
               {t('framing.rotate')}: {Math.round(rotation)}°

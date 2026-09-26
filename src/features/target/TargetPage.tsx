@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useApp } from '../../app/AppState';
 import { Link, navigate } from '../../app/router';
 import { formatCalendarDate } from '../../astro/time';
@@ -20,6 +20,8 @@ import { PreviewSection } from './PreviewSection';
 import { RecipeSection, lightsFor } from './RecipeSection';
 import { ScoreSection } from './ScoreSection';
 import { useEvaluation, useTargetDetail } from './useEvaluation';
+import type { OpticsSelection } from './opticsSelection';
+import type { OpticsChoice } from '../../astro/scoring';
 import { VisibilitySection } from './VisibilitySection';
 
 export function TargetPage({ id }: { id: string }) {
@@ -28,7 +30,22 @@ export function TargetPage({ id }: { id: string }) {
   const toast = useToast();
   const [date, setDate] = usePlanningDate(app.location);
   const detail = useTargetDetail(id);
-  const { ev, error } = useEvaluation(id, date);
+  const [opticsSel, setOpticsSel] = useState<OpticsSelection | null>(null);
+  const { ev, error, evSelection } = useEvaluation(id, date, opticsSel);
+  // The engine's own (automatic) optics choice, remembered for labelling
+  // while a manual selection is active.
+  const [autoOptics, setAutoOptics] = useState<OpticsChoice | null>(null);
+  useEffect(() => {
+    if (ev && !evSelection) setAutoOptics(ev.evaluation.optics);
+  }, [ev, evSelection]);
+  useEffect(() => {
+    setOpticsSel(null);
+    setAutoOptics(null);
+  }, [id, app.rig?.id]);
+  // The automatic choice depends on these inputs; forget a stale one.
+  useEffect(() => {
+    setAutoOptics(null);
+  }, [app.location?.id, app.settings.exposureMode, date?.year, date?.month, date?.day]);
   const fav = useLiveQuery(() => userDb().favorites.get(id), [id], undefined);
   const [planOpen, setPlanOpen] = useState(false);
 
@@ -122,10 +139,24 @@ export function TargetPage({ id }: { id: string }) {
         </div>
       </section>
       {error && <p style={{ color: 'var(--bad)' }}>{t('common.error', { error })}</p>}
-      {ev && <ScoreSection ev={ev} />}
+      {ev && <ScoreSection ev={ev} manual={!!evSelection} />}
       <VisibilitySection ev={ev} summary={s} />
-      <FramingSection ev={ev} summary={s} />
-      {ev && app.rigInput ? <RecipeSection ev={ev} summary={s} /> : null}
+      <FramingSection
+        ev={ev}
+        summary={s}
+        selection={opticsSel}
+        onSelect={setOpticsSel}
+        auto={autoOptics}
+      />
+      {ev && app.rigInput ? (
+        <RecipeSection
+          ev={ev}
+          summary={s}
+          selection={opticsSel}
+          onSelect={setOpticsSel}
+          auto={autoOptics}
+        />
+      ) : null}
       <PreviewSection summary={s} />
       <DataSection summary={s} detail={detail.detail} />
       {planOpen && date && (

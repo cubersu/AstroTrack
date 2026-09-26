@@ -5,6 +5,8 @@ import { resolveSiteSky } from './lightPollution';
 import { buildNightGrid } from './nightGrid';
 import type { EvaluationContext, RigInput, TargetInput } from './scoring';
 import { evaluateDso } from './scoring';
+import { cameraPixelPitchUm, pinOptics } from './equipment';
+import { TRAILING_MULTIPLIERS, effectiveTrailingDec, npfSeconds } from './npf';
 import { computeNight } from './twilight';
 import { tonightScore, timeMultiplier, weatherMultiplier } from './tonight';
 import { scoreHour } from './weatherScore';
@@ -201,6 +203,33 @@ describe('Fixed tripod vs tracking', () => {
     expect(fx.maxSubSource).toBe('npf');
     expect(fx.maxSubS!).toBeLessThan(10);
     expect(fx.components.trackingExposure.score).toBeLessThan(tr.components.trackingExposure.score);
+  });
+  it('a user-pinned optic sets the NPF limit for its focal length and aperture', () => {
+    const c = ctx(NEW_MOON_NIGHT, 4, { exposureMode: 'fixed' });
+    const zoom = SAMPLE_RIG.optics.find((o) => o.id === 'z18200')!;
+    const pinned = (focal: number, fNumber: number | null): RigInput => ({
+      ...SAMPLE_RIG,
+      optics: [{ id: zoom.id, spec: pinOptics(zoom.spec, focal, fNumber) }],
+    });
+    const pitch = cameraPixelPitchUm(SAMPLE_RIG.camera);
+    for (const [focal, fNumber] of [
+      [24, 4],
+      [135, 8],
+    ] as const) {
+      const ev = evalT(TARGETS.M31, c, pinned(focal, fNumber));
+      expect(ev.optics!.opticsId).toBe('z18200');
+      expect(ev.optics!.focalLengthMm).toBeCloseTo(focal, 6);
+      expect(ev.optics!.fNumber).toBe(fNumber);
+      const effDec = effectiveTrailingDec(TARGETS.M31.decDeg, ev.optics!.framing.fovHeightDeg);
+      expect(ev.maxSubS!).toBeCloseTo(
+        npfSeconds(fNumber, focal, pitch, effDec) *
+          TRAILING_MULTIPLIERS[DEFAULT_SCORING_SETTINGS.trailingTolerance],
+        6,
+      );
+    }
+    const wide = evalT(TARGETS.M31, c, pinned(24, 4));
+    const tele = evalT(TARGETS.M31, c, pinned(135, 8));
+    expect(wide.maxSubS!).toBeGreaterThan(tele.maxSubS! * 2);
   });
   it('uses mount calibration when available', () => {
     const cal: RigInput = {

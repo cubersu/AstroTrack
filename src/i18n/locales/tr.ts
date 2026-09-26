@@ -459,6 +459,16 @@ export const tr: Dict = {
     includeNonDso: 'Yıldızları / var olmayan kayıtları da dahil et',
   },
   target: {
+    opticsAuto: 'Otomatik (önerilen)',
+    opticsAutoWith: 'Otomatik — {name}, {focal} mm',
+    opticsHint:
+      'Etkin profildeki bir lens ya da teleskobu seç: kadraj, poz sınırları (sabit tripodda NPF), toplam poz ve puanlar ona göre yeniden hesaplanır.',
+    focalChoice: 'Odak uzaklığı: {focal} mm',
+    focalRange: 'Zoom aralığı {min}–{max} mm',
+    apertureChoice: 'Diyafram',
+    apertureAutoPlain: 'Otomatik',
+    apertureAutoValue: 'Otomatik ({f})',
+    manualOptics: 'Seçtiğin optik için hesaplandı: {name} · {focal} mm · {f}',
     notFound: 'Nesne katalogda bulunamadı.',
     preview: 'Önizleme',
     visibility: 'Görünürlük',
@@ -566,12 +576,12 @@ export const tr: Dict = {
     optics: 'Optik',
     recommendedFocal: 'Önerilen odak uzaklığı',
     footprintNote: 'Elips = katalog boyutu ve yönü (yaklaşık).',
-    zoomRange: 'Taranan zum aralığı: {min}–{max} mm',
     showDeepStars:
       'Daha sönük yıldızlar için isteğe bağlı yıldız paketi gerekir (Çevrimdışı Veri).',
     resetView: 'Görünümü sıfırla',
   },
   recipe: {
+    fixedFor: '{name} · {focal} mm · {f} için',
     optics: 'Optik',
     focal: 'Odak uzaklığı',
     aperture: 'Diyafram',

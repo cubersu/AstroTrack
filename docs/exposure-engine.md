@@ -48,6 +48,19 @@ The trail length in pixels is always displayed. The legacy 500 rule
 Alt-azimuth tracking: field rotation rate `ω⊕ · cos φ · cos A / cos h`; the
 limit keeps a corner star within 1 px.
 
+### Choosing the optic yourself
+
+By default the engine picks the optic, focal length (best framing within a
+zoom's range) and working aperture, and the NPF table describes that choice.
+On a target page the user can instead pick any optic of the active profile,
+a focal length within a zoom's range and an aperture (standard ⅓-stops from
+the maximum aperture at that focal length down to f/11; telescopes keep their
+native ratio). The selection is shared by the framing and recipe sections and
+the target is re-evaluated for exactly that configuration (`pinOptics`: a
+zoom becomes a prime at the chosen focal length, the chosen aperture becomes
+the preferred f-number), so the NPF/tracking limit, sub-exposure, integration
+and scores all follow it. Choosing "Automatic" returns to the engine's choice.
+
 ## Tracking mode — empirical mount calibration
 
 Users record points _(focal length → longest reliable round-star exposure)_,
