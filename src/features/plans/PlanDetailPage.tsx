@@ -5,6 +5,7 @@ import { Link, navigate } from '../../app/router';
 import { classifyScore } from '../../astro/config';
 import { parseCalendarDate, formatCalendarDate } from '../../astro/time';
 import { userDb } from '../../db/userDb';
+import type { Plan } from '../../db/types';
 import { useI18n } from '../../i18n/i18n';
 import { Spinner } from '../../ui/controls';
 import { useLiveQuery } from '../../ui/hooks';
@@ -17,7 +18,14 @@ import { catalogApi } from '../../app/catalogClient';
 export function PlanDetailPage({ id }: { id: string }) {
   const { t, fmtDuration, fmtTime } = useI18n();
   const app = useApp();
-  const plan = useLiveQuery(() => userDb().plans.get(id), [id], undefined);
+  const plan = useLiveQuery(
+    () =>
+      userDb()
+        .plans.get(id)
+        .then((p) => p ?? null),
+    [id],
+    undefined as Plan | null | undefined,
+  );
   const journal = useLiveQuery(
     () => userDb().journal.where('planId').equals(id).toArray(),
     [id],
@@ -88,7 +96,7 @@ export function PlanDetailPage({ id }: { id: string }) {
   ]);
 
   if (plan === undefined) return <Spinner label={t('common.loading')} />;
-  if (!plan) return <p>{t('target.notFound')}</p>;
+  if (!plan) return <p>{t('plans.notFound')}</p>;
   const doneS = planAchievedSeconds(plan, journal);
   const goalH = planGoalHours(plan, recH);
   const nights = outlook?.targets[0]?.nights ?? [];

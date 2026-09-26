@@ -766,6 +766,7 @@ export const tr: Dict = {
     subtitle: 'Tek ve çok gecelik çekim planları, favoriler ve yaklaşan fırsatlar.',
     tabPlans: 'Planlar',
     tabFavorites: 'Favoriler ve fırsatlar',
+    notFound: 'Plan bulunamadı.',
     new: 'Yeni plan',
     none: 'Henüz plan yok. Bir hedefin sayfasından oluşturun.',
     single: 'Tek gece',

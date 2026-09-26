@@ -755,6 +755,7 @@ export const en = {
     subtitle: 'Single-night and multi-night imaging plans, favourites and upcoming opportunities.',
     tabPlans: 'Plans',
     tabFavorites: 'Favourites & opportunities',
+    notFound: 'Plan not found.',
     new: 'New plan',
     none: 'No plans yet. Create one from a target’s page.',
     single: 'Single night',

@@ -64,7 +64,16 @@ export function SessionPage() {
   const app = useApp();
   const toast = useToast();
   const now = useNow(15_000);
-  const session = useLiveQuery(() => userDb().session.get('active'), [], undefined);
+  // `get` resolves to undefined when there is no row; map that to null so
+  // "no active session" is distinguishable from "still loading".
+  const session = useLiveQuery(
+    () =>
+      userDb()
+        .session.get('active')
+        .then((s) => s ?? null),
+    [],
+    undefined as ActiveSession | null | undefined,
+  );
   const [summary, setSummary] = useState<DsoSummary | null>(null);
   const [ev, setEv] = useState<EvaluateResponse | null>(null);
   const cur = useCurrentPosition(summary);
